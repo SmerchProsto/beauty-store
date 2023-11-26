@@ -2,22 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Салон красоты</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<nav class="main-nav nav-column">
+    <div class="main-logo">Beauty store</div>
+    <ul class="nav-items">
+        <li class="nav-item"><a class="nav-item-link" href="">Главная</a></li>
+        <li class="nav-item"><a class="nav-item-link" href="#price">Прайс</a></li>
+        <li class="nav-item"><a class="nav-item-link" href="#gallery">Галерея</a></li>
+        <li class="nav-item"><a class="nav-item-link" href="#contacts">Контакты</a></li>
+        <li class="nav-item"><a class="nav-item-link" href="#comments">Отзывы</a></li>
+        <li class="nav-item"><a class="nav-item-link" href="">Поиск</a></li>
+    </ul>
+    <ul class="nav-buttons">
+        <li class="nav-button">
+            <a href="" class="button-signup">Записатьcя</a>
+        </li>
+        <li class="nav-button">
+            <img class="main-nav-btn" src="" alt="">
+        </li>
+    </ul>
+</nav>
 <header class="main-header">
-    <nav class="main-nav">
-        <div class="main-logo">Beauty store</div>
-        <ul class="nav-items">
-            <li class="nav-item">Главная</li>
-            <li class="nav-item">Прайс</li>
-            <li class="nav-item">Галерея</li>
-            <li class="nav-item">Контакты</li>
-            <li class="nav-item">Отзывы</li>
-            <li class="nav-item">Телеграмм</li>
-        </ul>
-        <a href="" class="button-signup">Записатьcя</a>
-    </nav>
     <section class="main-header-content">
         <section class="header-content-details">
             <div class="details-text">
@@ -93,7 +103,7 @@
             </li>
         </ul>
     </section>
-    <section class="price">
+    <section id="price" class="price">
         <h2 class="price-title">Прайс</h2>
         <ul class="price-items">
             <li class="price-item">
@@ -115,13 +125,14 @@
             </li>
         </ul>
     </section>
+    <section id="gallery" class="gallery"></section>
     <section class="about-us">
-        <h1 class="about-us-title">О нашей ситуации</h1>
+        <h1 class="about-us-title">О нашей студии</h1>
     </section>
     <section class="masters">
         <h1 class="masters-title"></h1>
     </section>
-    <section class="comment">
+    <section id="comments" class="comment">
         <h2 class="comment-title">Отзывы</h2>
         <ul class="comment-items">
             <li class="comment-item">
@@ -138,7 +149,7 @@
             </li>
         </ul>
     </section>
-    <section class="contact">
+    <section id="contacts" class="contact">
         <h2 class="contact-title">Наши контакты</h2>
         <ul class="contact-items">
             <li class="contact-item">
@@ -172,5 +183,6 @@
 <footer class="main-footer">
 
 </footer>
+<script src="js/script.js"></script>
 </body>
 </html>
