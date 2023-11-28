@@ -24,3 +24,9 @@ navItems.addEventListener('click', (e) => {
         changeMenu();
     }
 })
+
+const slider = () => {
+    let slides = document.querySelectorAll('.work-item')
+
+}
+
