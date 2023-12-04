@@ -433,6 +433,148 @@
     }
 }
 
+/*gallery*/
+
+.gallery {
+    padding: 20px;
+}
+
+.gallery-title {
+    text-align: center;
+}
+
+.gallery-items {
+    display: flex;
+}
+
+
+
+@media (min-width: 320px) {
+    .gallery-items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gallery-item {
+        min-width: 200px;
+        min-height: 200px;
+        margin: 20px;
+        background-color: black;
+    }
+
+}
+
+/*masters*/
+
+.master {
+    padding: 20px;
+}
+
+.master-title {
+    text-align: center;
+}
+
+.master-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.master-item {
+    display: flex;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.master-text {
+    padding: 20px;
+}
+
+.master-name {
+    margin-top: 0;
+}
+
+.master-img {
+    border-radius: 20px;
+    background-color: black;
+}
+
+.arrow-button-left, .arrow-button-right {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+}
+
+@media (min-width: 320px) {
+    .master-item {
+        flex-direction: column;
+        justify-content: center;
+        min-height: 200px;
+        margin: 20px;
+        color: #ffffff;
+        background-color: #5C8692;
+    }
+
+    .master-img {
+        min-height: 125px;
+    }
+
+    .master-buttons {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .master-item {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .master-text {
+        padding: 10px;
+    }
+
+    .master-img {
+        min-width: 190px;
+    }
+
+    .master-buttons, .master-button-change {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 0;
+        height: 0;
+    }
+
+    /*.master-item-scale {
+        width: inherit;
+        height: inherit;
+    }*/
+
+    .master-item-scale .master-img {
+        min-width: 400px;
+        min-height: 300px;
+    }
+}
+
+/*cards*/
+
+.card-number {
+    color: #ffffff;
+}
+
+
+
 
 /*about-us*/
 
@@ -665,9 +807,9 @@
 
 /*Defautl-settings*/
 
-/** {
+* {
     outline: 1px solid cornflowerblue;
-}*/
+}
 
 * {
     box-sizing: border-box;
