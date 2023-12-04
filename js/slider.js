@@ -1,9 +1,8 @@
 class Slider {
 
-    constructor(slides) {
+    constructor(slides, countShowSlides) {
         this.slides = slides;
-        this.showSlideLength = 3;
-        this.slideHead = this.showSlideLength;
+        this.slideHead = countShowSlides - 1;
         this.slideBack = 0;
     }
 

@@ -91,13 +91,13 @@ const changeMasterCard = (elem) => {
 }
 
 
-const masterSlider = new Slider(mastersLiArray);
+const masterSlider = new Slider(mastersLiArray, 2);
 const btnArrRight = document.querySelector('.arrow-button-right');
 const btnArrLeft = document.querySelector('.arrow-button-left');
 btnArrRight.addEventListener('click', () => {
-    masterSlider.moveRight(4);
+    masterSlider.moveRight(1);
 })
 btnArrLeft.addEventListener('click', () => {
-    masterSlider.moveLeft(4);
+    masterSlider.moveLeft(1);
 })
-masterSlider.makeHideOtherSlides(0, 3)
+masterSlider.makeHideOtherSlides(0, 1)
