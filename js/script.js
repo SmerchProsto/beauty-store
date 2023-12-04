@@ -95,9 +95,9 @@ const masterSlider = new Slider(mastersLiArray);
 const btnArrRight = document.querySelector('.arrow-button-right');
 const btnArrLeft = document.querySelector('.arrow-button-left');
 btnArrRight.addEventListener('click', () => {
-    masterSlider.moveRight();
+    masterSlider.moveRight(4);
 })
 btnArrLeft.addEventListener('click', () => {
-    masterSlider.moveLeft();
+    masterSlider.moveLeft(4);
 })
-masterSlider.makeHideOtherSlides('toEnd')
+masterSlider.makeHideOtherSlides(0, 3)

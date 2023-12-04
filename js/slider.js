@@ -2,58 +2,73 @@ class Slider {
 
     constructor(slides) {
         this.slides = slides;
-        this.slideHead = null;
-        this.slideBack = null;
         this.showSlideLength = 3;
+        this.slideHead = this.showSlideLength;
+        this.slideBack = 0;
     }
-    makeHideOtherSlides = (hideDirection) => {
-        if (hideDirection === 'toEnd') {
-            this.slides.map((slide, index) => {
-                if (index === 0) {
-                    this.slideBack = index;
+
+    showAllSlides = () => {
+        this.slides.map((slide) => {
+            if (slide.classList.contains('hidden')) {
+                slide.classList.remove('hidden');
+            }
+        })
+    }
+
+    makeHideOtherSlides = (start, end) => {
+        let i = 0;
+
+        if (start < end) {
+            while (i < this.slides.length) {
+                if (i < start || i > end) {
+                    this.slides[i].classList.add('hidden');
+                } else {
+                    this.slides[i].classList.remove('hidden');
                 }
-                if (index === this.showSlideLength) {
-                    this.slideHead = index;
-                }
-                if (index <= this.showSlideLength) {
-                    slide.classList.remove('hidden')
-                }
-                if (index > this.showSlideLength) {
-                    slide.classList.add('hidden');
-                }
-            })
-        }   else if (hideDirection === 'toStart') {
-            this.slideBack = this.slides.length - (this.showSlideLength + 1);
-            this.slideHead = this.slides.length - 1;
-            this.slides.map((slide, index) => {
-                if (index < this.slideBack || index > this.slideHead) {
-                    slide.classList.add('hidden');
-                }   else {
-                    slide.classList.remove('hidden');
-                }
-            })
+                i++
+            }
+        }   else {
+            i = 0;
+
+            while (i < start) {
+                this.slides[i].classList.add('hidden');
+                i++;
+            }
+
+            i = 0;
+            while (i <= end) {
+                this.slides[i].classList.remove('hidden')
+                i++;
+            }
         }
     }
 
-    moveRight = () => {
-        this.slideHead++;
-        if (this.slideHead == this.slides.length) {
-            this.makeHideOtherSlides('toEnd');
-        } else {
-            this.slides[this.slideHead].classList.remove('hidden');
-            this.slides[this.slideBack].classList.add('hidden');
-            this.slideBack++;
+    moveRight = (step) => {
+        this.slideHead += step;
+        this.slideBack += step;
+        if (this.slideHead >= this.slides.length) {
+            this.showAllSlides();
+            this.slideHead = Math.abs(this.slideHead - (this.slides.length));
         }
+        if (this.slideBack >= this.slides.length) {
+            this.showAllSlides();
+            this.slideBack = Math.abs(this.slideBack - (this.slides.length));
+        }
+        this.makeHideOtherSlides(this.slideBack, this.slideHead);
     }
 
-    moveLeft = () => {
-        this.slideBack--;
+    moveLeft = (step) => {
+        this.slideBack -= step;
+        this.slideHead -= step
         if (this.slideBack < 0) {
-            this.makeHideOtherSlides('toStart');
-        } else {
-            this.slides[this.slideBack].classList.remove('hidden');
-            this.slides[this.slideHead].classList.add('hidden');
-            this.slideHead--;
+            this.showAllSlides();
+            this.slideBack = this.slides.length - Math.abs(this.slideBack);
         }
+        if (this.slideHead < 0) {
+            this.showAllSlides();
+            this.slideHead = this.slides.length - Math.abs(this.slideHead);
+        }
+        this.makeHideOtherSlides(this.slideBack, this.slideHead);
+
     }
 }
