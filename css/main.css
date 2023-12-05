@@ -539,6 +539,7 @@
     .master-item {
         flex-direction: row;
         justify-content: flex-start;
+        min-width: 450px;
     }
 
     .master-text {
