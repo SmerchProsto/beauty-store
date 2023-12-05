@@ -25,12 +25,11 @@ navItems.addEventListener('click', (e) => {
     }
 })
 
-/*const slider = () => {
-    let slides = document.querySelectorAll('.work-item')
-}*/
-
 const masters = document.querySelector('.master-items');
 const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
+const commentsLiArray = Array.from(document.querySelectorAll('.comment-item'));
+const worksLiArray = Array.from(document.querySelectorAll('.work-item'));
+const galleryLiArray = Array.from(document.querySelectorAll('.gallery-item'));
 
 const findParent = (childElement, parentName) => {
 
@@ -73,7 +72,7 @@ const changeMasterCard = (elem) => {
         masterDescriptions.innerHTML = text;
         mastersLiArray.map(master => {
             if (master.id !== elem.id) {
-                master.classList.remove('hidden');
+                master.classList.remove('hidden-elem');
             }
         });
     } else {
@@ -84,20 +83,78 @@ const changeMasterCard = (elem) => {
         cardBtn.innerHTML = 'Закрыть';
         mastersLiArray.map(master => {
             if (master.id !== elem.id) {
-                master.classList.add('hidden');
+                master.classList.add('hidden-elem');
             }
         });
     }
 }
 
 
-const masterSlider = new Slider(mastersLiArray, 4);
-const btnArrRight = document.querySelector('.arrow-button-right');
-const btnArrLeft = document.querySelector('.arrow-button-left');
-btnArrRight.addEventListener('click', () => {
-    masterSlider.moveRight(4);
-})
-btnArrLeft.addEventListener('click', () => {
-    masterSlider.moveLeft(4);
-})
-masterSlider.makeHideOtherSlides(0, 3)
+if (window.innerWidth >= 768) {
+    const masterSlider = new Slider(mastersLiArray, 4);
+    masterSlider.arrowLeft = document.querySelector('.arrow-button-left');
+    masterSlider.arrowRight = document.querySelector('.arrow-button-right');
+    masterSlider.arrowRight.addEventListener('click', () => {
+        masterSlider.moveRight(4);
+    })
+    masterSlider.arrowLeft.addEventListener('click', () => {
+        masterSlider.moveLeft(4);
+    })
+    masterSlider.makeHideOtherSlides(0, 3);
+
+    const commentSlider = new Slider(commentsLiArray, 2);
+    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        commentSlider.moveRight(2);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(2);
+    });
+    commentSlider.makeHideOtherSlides(0, 1);
+} else if (window.innerWidth < 768) {
+    const masterSlider = new Slider(mastersLiArray, 1);
+    masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
+    masterSlider.arrowRight = document.querySelector('.master .arrow-button-right');
+    masterSlider.arrowRight.addEventListener('click', () => {
+        masterSlider.moveRight(1);
+    });
+    masterSlider.arrowLeft.addEventListener('click', () => {
+        masterSlider.moveLeft(1);
+    });
+    masterSlider.makeHideOtherSlides(0, 0);
+
+    const commentSlider = new Slider(commentsLiArray, 1);
+    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        commentSlider.moveRight(1);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(1);
+    });
+    commentSlider.makeHideOtherSlides(0, 0);
+
+    const workSlider = new Slider(worksLiArray, 1);
+    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
+    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
+    workSlider.arrowRight.addEventListener('click', () => {
+        workSlider.moveRight(1);
+    });
+    workSlider.arrowLeft.addEventListener('click', () => {
+        workSlider.moveLeft(1);
+    });
+    workSlider.makeHideOtherSlides(0, 0);
+
+    const gallerySlider = new Slider(galleryLiArray, 1);
+    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
+    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
+    gallerySlider.arrowRight.addEventListener('click', () => {
+        gallerySlider.moveRight(1);
+    });
+    gallerySlider.arrowLeft.addEventListener('click', () => {
+        gallerySlider.moveLeft(1);
+    });
+    gallerySlider.makeHideOtherSlides(0, 0);
+
+}

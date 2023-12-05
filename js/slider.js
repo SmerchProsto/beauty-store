@@ -4,6 +4,8 @@ class Slider {
         this.slides = slides;
         this.slideHead = countShowSlides - 1;
         this.slideBack = 0;
+        this._arrowLeft = null;
+        this._arrowRight = null;
     }
 
     showAllSlides = () => {
@@ -17,7 +19,15 @@ class Slider {
     makeHideOtherSlides = (start, end) => {
         let i = 0;
 
-        if (start < end) {
+        if (start === end) {
+            this.slides.map((slide, index) => {
+                if (index !== start) {
+                    slide.classList.add('hidden');
+                } else {
+                    slide.classList.remove('hidden');
+                }
+            })
+        } else if (start < end) {
             while (i < this.slides.length) {
                 if (i < start || i > end) {
                     this.slides[i].classList.add('hidden');
@@ -26,7 +36,7 @@ class Slider {
                 }
                 i++
             }
-        }   else {
+        } else if (start > end) {
             i = 0;
 
             while (i < start) {
@@ -69,5 +79,19 @@ class Slider {
         }
         this.makeHideOtherSlides(this.slideBack, this.slideHead);
 
+    }
+
+    get arrowLeft() {
+        return this._arrowLeft;
+    }
+    get arrowRight() {
+        return this._arrowRight;
+    }
+
+    set arrowLeft(arrow) {
+        this._arrowLeft = arrow;
+    }
+    set arrowRight(arrow) {
+        this._arrowRight = arrow;
     }
 }
