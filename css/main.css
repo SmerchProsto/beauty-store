@@ -454,6 +454,17 @@
     color: white; /*for tests*/
 }
 
+.gallery-item-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.gallery-item-item {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
 
 
 @media (min-width: 320px) {
@@ -471,6 +482,12 @@
         min-width: 200px;
         min-height: 200px;
         margin: 20px;
+        background-color: black;
+    }
+
+    .gallery-item-item {
+        min-width: 200px;
+        min-height: 200px;
         background-color: black;
     }
 

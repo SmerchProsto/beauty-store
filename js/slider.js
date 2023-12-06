@@ -6,6 +6,7 @@ class Slider {
         this.slideBack = 0;
         this._arrowLeft = null;
         this._arrowRight = null;
+        this._id = this.slideHead;
     }
 
     showAllSlides = () => {
@@ -54,10 +55,12 @@ class Slider {
 
     moveRight = (step) => {
         this.slideHead += step;
+        this._id += step;
         this.slideBack += step;
         if (this.slideHead >= this.slides.length) {
             this.showAllSlides();
             this.slideHead = Math.abs(this.slideHead - (this.slides.length));
+            this._id = this.slideHead;
         }
         if (this.slideBack >= this.slides.length) {
             this.showAllSlides();
@@ -69,6 +72,8 @@ class Slider {
     moveLeft = (step) => {
         this.slideBack -= step;
         this.slideHead -= step
+        this._id -= step;
+
         if (this.slideBack < 0) {
             this.showAllSlides();
             this.slideBack = this.slides.length - Math.abs(this.slideBack);
@@ -76,9 +81,24 @@ class Slider {
         if (this.slideHead < 0) {
             this.showAllSlides();
             this.slideHead = this.slides.length - Math.abs(this.slideHead);
+            this._id = this.slideHead;
         }
         this.makeHideOtherSlides(this.slideBack, this.slideHead);
 
+    }
+
+    setIds = () => {
+        this.slides.map((slide, index) => {
+            slide.setAttribute('id', slide.className + index);
+        })
+    }
+
+    get getId() {
+        return this._id;
+    }
+
+    getSlide = () => {
+        return this.slides[this._id]
     }
 
     get arrowLeft() {

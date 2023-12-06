@@ -112,7 +112,9 @@ if (window.innerWidth >= 768) {
         commentSlider.moveLeft(2);
     });
     commentSlider.makeHideOtherSlides(0, 1);
+
 } else if (window.innerWidth < 768) {
+
     const masterSlider = new Slider(mastersLiArray, 1);
     masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
     masterSlider.arrowRight = document.querySelector('.master .arrow-button-right');
@@ -147,14 +149,26 @@ if (window.innerWidth >= 768) {
     workSlider.makeHideOtherSlides(0, 0);
 
     const gallerySlider = new Slider(galleryLiArray, 1);
+    let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
+    galleryItemSlider.makeHideOtherSlides(0,0);
+    let galleryItemSliderTimer = setInterval(() => {
+        galleryItemSlider.moveRight(1)
+    }, 2500)
+    gallerySlider.setIds();
+
     gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
     gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
     gallerySlider.arrowRight.addEventListener('click', () => {
         gallerySlider.moveRight(1);
+        clearInterval(galleryItemSliderTimer);
+        galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
+        galleryItemSlider.makeHideOtherSlides(0,0);
+        galleryItemSliderTimer = setInterval(() => {
+            galleryItemSlider.moveRight(1)
+        }, 2500);
     });
     gallerySlider.arrowLeft.addEventListener('click', () => {
         gallerySlider.moveLeft(1);
     });
     gallerySlider.makeHideOtherSlides(0, 0);
-
 }
