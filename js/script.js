@@ -1,7 +1,15 @@
-const buttonOpen = document.querySelector('.main-nav-btn');
+const buttonOpen = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.main-nav');
 const navItems = document.querySelector('.nav-items');
 const buttonSignUp = document.querySelector('.button-signup');
+
+(function () {
+    let toggle = document.querySelector('.nav-toggle');
+
+    toggle.addEventListener('click', function(e) {
+        this.classList.toggle('opened');
+    });
+})();
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth <= 999) {
@@ -16,8 +24,6 @@ const changeMenu = () => {
     }
 }
 
-console.log(window.innerWidth);
-
 buttonOpen.addEventListener('click', changeMenu);
 navItems.addEventListener('click', (e) => {
     if (e.target.tagName === 'A') {
@@ -30,6 +36,7 @@ const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
 const commentsLiArray = Array.from(document.querySelectorAll('.comment-item'));
 const worksLiArray = Array.from(document.querySelectorAll('.work-item'));
 const galleryLiArray = Array.from(document.querySelectorAll('.gallery-item'));
+const priceItemImgArray = Array.from(document.querySelectorAll('.price-item-img'));
 
 const findParent = (childElement, parentName) => {
 
@@ -61,31 +68,56 @@ masters.addEventListener('click', (e) => {
 
 const changeMasterCard = (elem) => {
     let cardBtn = elem.querySelector('.master-button-change');
+    let master = document.querySelector('.master');
+    let masterArrows = master.querySelector('.arrow-buttons');
     let masterDescriptions = elem.querySelector('.master-descriptions');
+    let masterImgContainer = elem.querySelector('.master-img-container');
+    let masterImgContainerSlider;
     let cardText = document.getElementById(elem.id + '-master');
+    let cardImg = document.getElementById(elem.id + '-master-img');
+    let cardImgArray = null;
     let text;
+    let img;
+    let masterImgTimer;
     if (null !== cardBtn.innerHTML &&  cardBtn.innerHTML === 'Закрыть') {
         elem.classList.remove('master-item-scale');
         cardBtn.innerHTML = 'Подробнее';
         text = cardText.innerHTML;
+        img = cardImg.innerHTML;
         cardText.innerHTML = masterDescriptions.innerHTML;
+        cardImg.innerHTML = masterImgContainer.innerHTML;
         masterDescriptions.innerHTML = text;
+        masterImgContainer.innerHTML = img;
+        masterImgContainerSlider = null;
+        cardImgArray = null;
+        clearInterval(masterImgTimer);
         mastersLiArray.map(master => {
             if (master.id !== elem.id) {
                 master.classList.remove('hidden-elem');
             }
         });
+        masterArrows.classList.toggle('hidden');
     } else {
         elem.classList.add('master-item-scale');
-        text = masterDescriptions.innerHTML
+        text = masterDescriptions.innerHTML;
+        img = masterImgContainer.innerHTML;
         masterDescriptions.innerHTML = cardText.innerHTML;
+        masterImgContainer.innerHTML = cardImg.innerHTML;
+        cardImgArray = Array.from(masterImgContainer.querySelectorAll('.master-img'))
+        masterImgContainerSlider = new Slider(cardImgArray, 1);
+        masterImgContainerSlider.makeHideOtherSlides(0,0);
+        masterImgTimer = setInterval(() => {
+            masterImgContainerSlider.moveRight(1);
+        }, 2500);
         cardText.innerHTML = text;
+        cardImg.innerHTML = img;
         cardBtn.innerHTML = 'Закрыть';
         mastersLiArray.map(master => {
             if (master.id !== elem.id) {
                 master.classList.add('hidden-elem');
             }
         });
+        masterArrows.classList.toggle('hidden');
     }
 }
 
@@ -171,4 +203,15 @@ if (window.innerWidth >= 768) {
         gallerySlider.moveLeft(1);
     });
     gallerySlider.makeHideOtherSlides(0, 0);
+
+    let priceImgSliders = [];
+    priceItemImgArray.map((item, index) => {
+        priceImgSliders.push(new Slider(Array.from(item.querySelectorAll('.price-img')), 1));
+        priceImgSliders[index].makeHideOtherSlides(0, 0);
+
+        setInterval(() => {
+            priceImgSliders[index].moveRight(1);
+        }, 2500)
+    })
+
 }

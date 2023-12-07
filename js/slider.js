@@ -89,7 +89,7 @@ class Slider {
 
     setIds = () => {
         this.slides.map((slide, index) => {
-            slide.setAttribute('id', slide.className + index);
+            slide.setAttribute('id', slide.classList[0] + index);
         })
     }
 

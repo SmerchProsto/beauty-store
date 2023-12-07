@@ -9,7 +9,9 @@
 </head>
 <body>
 <nav class="main-nav nav-column">
-    <div class="main-logo">Beauty store</div>
+    <div class="main-logo">
+        <img src="img/main-logo.png" alt="">
+    </div>
     <ul class="nav-items">
         <li class="nav-item"><a class="nav-item-link" href="">Главная</a></li>
         <li class="nav-item"><a class="nav-item-link" href="#price">Прайс</a></li>
@@ -20,10 +22,17 @@
     </ul>
     <ul class="nav-buttons">
         <li class="nav-button">
-            <a href="" class="nav-button-signup">Записаться</a>
+            <a href="" class="nav-button-signup">
+                <img src="img/recording-btn.svg" alt="">
+                <span class="button-signup-text">Записаться</span>
+            </a>
         </li>
         <li class="nav-button">
-            <img class="main-nav-btn" src="" alt="">
+            <button class="nav-toggle">
+                <span class="bar-top"></span>
+                <span class="bar-mid"></span>
+                <span class="bar-bot"></span>
+            </button>
         </li>
     </ul>
 </nav>
@@ -45,13 +54,13 @@
         </section>
         <section class="header-content-img">
             <figure class="content-img-container">
-                <img src="" alt="">
+                <img src="img/header-content-img.png" alt="">
             </figure>
         </section>
     </section>
 </header>
 <main>
-    <section class="work">
+    <section class="work" >
         <div class="arrow-buttons">
             <button class="arrow arrow-button-left master-arrow">
                 <img src="img/arrow-left.png" alt="">
@@ -63,7 +72,7 @@
         <ul class="work-items">
             <li class="work-item">
                 <figure class="work-container-img">
-                    <img src="" alt="">
+                    <img src="img/manicure.jpg" alt="">
                 </figure>
                 <div class="work-item-wrapper">
                     <div class="work-item-content">
@@ -73,9 +82,9 @@
                     <button class="btn-more">Подробнее</button>
                 </div>
             </li>
-            <li class="work-item">
+            <li class="work-item hidden">
                 <figure class="work-container-img">
-                    <img src="" alt="">
+                    <img src="img/eyelashes-eyebrows.jpg" alt="">
                 </figure>
                 <div class="work-item-wrapper">
                     <div class="work-item-content">
@@ -85,9 +94,9 @@
                     <button class="btn-more">Подробнее</button>
                 </div>
             </li>
-            <li class="work-item">
+            <li class="work-item hidden">
                 <figure class="work-container-img">
-                    <img src="" alt="">
+                    <img src="img/self-tanning.jpg" alt="">
                 </figure>
                 <div class="work-item-wrapper">
                     <div class="work-item-content">
@@ -97,9 +106,9 @@
                     <button class="btn-more">Подробнее</button>
                 </div>
             </li>
-            <li class="work-item">
+            <li class="work-item hidden">
                 <figure class="work-container-img">
-                    <img src="" alt="">
+                    <img src="img/hairdressing-salons.jpg" alt="">
                 </figure>
                 <div class="work-item-wrapper">
                     <div class="work-item-content">
@@ -112,12 +121,13 @@
         </ul>
     </section>
     <section id="price" class="price">
-        <h2 class="price-title">Прайс</h2>
+        <h2 class="price-title topic">Прайс</h2>
         <ul class="price-items">
             <li class="price-item price-item-img">
-                <figure class="price-container-img">
-                    <img src="" alt="изображение">
-                </figure>
+                    <img class="price-img" src="img/price-1.jpg" alt="изображение">
+                    <img class="price-img hidden" src="img/price-2.jpg" alt="изображение">
+                    <img class="price-img hidden" src="img/price-3.jpg" alt="изображение">
+                    <img class="price-img hidden" src="img/price-4.jpg" alt="изображение">
             </li>
             <li class="price-item">
                 <ul class="price-content-items">
@@ -132,8 +142,8 @@
                     </li>
                     <li class="price-content-item">
                         <section class="price-content-text">
-                            <h2 class="price-content-title">Укладки и локоны</h2>
-                            <p class="price-content-description">от 590 р.</p>
+                            <h2 class="price-content-title">Стрижки</h2>
+                            <p class="price-content-description">от 290 р.</p>
                         </section>
                         <div class="price-content-buttons">
                             <a href="" class="btn-more">Подробнее</a>
@@ -141,8 +151,8 @@
                     </li>
                     <li class="price-content-item">
                         <section class="price-content-text">
-                            <h2 class="price-content-title">Укладки и локоны</h2>
-                            <p class="price-content-description">от 590 р.</p>
+                            <h2 class="price-content-title">Окрашивание</h2>
+                            <p class="price-content-description">от 1290 р.</p>
                         </section>
                         <div class="price-content-buttons">
                             <a href="" class="btn-more">Подробнее</a>
@@ -150,8 +160,8 @@
                     </li>
                     <li class="price-content-item">
                         <section class="price-content-text">
-                            <h2 class="price-content-title">Укладки и локоны</h2>
-                            <p class="price-content-description">от 590 р.</p>
+                            <h2 class="price-content-title">Реконструкция волос</h2>
+                            <p class="price-content-description">от 1490 р.</p>
                         </section>
                         <div class="price-content-buttons">
                             <a href="" class="btn-more">Подробнее</a>
@@ -159,7 +169,136 @@
                     </li>
                     <li class="price-content-item">
                         <section class="price-content-text">
-                            <h2 class="price-content-title">Укладки и локоны</h2>
+                            <h2 class="price-content-title">Уход за волосами</h2>
+                            <p class="price-content-description">от 290 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="price-item-buttons">
+                    <a href="" class="button-signup">Записаться</a>
+                </div>
+            </li>
+            <li class="price-item price-item-img">
+                <img class="price-img" src="img/price-5.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-6.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-7.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-8.jpg" alt="изображение">
+            </li>
+            <li class="price-item">
+                <ul class="price-content-items">
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Маникюр женский</h2>
+                            <p class="price-content-description">от 290 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Маникюр Мужской</h2>
+                            <p class="price-content-description">от 1090 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Педикюр</h2>
+                            <p class="price-content-description">от 990 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Дизайн</h2>
+                            <p class="price-content-description">от 50 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="price-item-buttons">
+                    <a href="" class="button-signup">Записаться</a>
+                </div>
+            </li>
+            <li class="price-item price-item-img">
+                <img class="price-img" src="img/price-9.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-10.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-11.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-12.jpg" alt="изображение">
+            </li>
+            <li class="price-item">
+                <ul class="price-content-items">
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Ресницы</h2>
+                            <p class="price-content-description">от 90 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Брови</h2>
+                            <p class="price-content-description">от 490 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Дополнительные услуги</h2>
+                            <p class="price-content-description">от 390 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="price-item-buttons">
+                    <a href="" class="button-signup">Записаться</a>
+                </div>
+            </li>
+            <li class="price-item price-item-img">
+                <img class="price-img" src="img/price-13.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-14.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-15.jpg" alt="изображение">
+                <img class="price-img hidden" src="img/price-16.jpg" alt="изображение">
+            </li>
+            <li class="price-item">
+                <ul class="price-content-items">
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Моментальный загар всего тела</h2>
+                            <p class="price-content-description">от 1990 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Моментальный загар (Только Ноги)</h2>
+                            <p class="price-content-description">от 1390 р.</p>
+                        </section>
+                        <div class="price-content-buttons">
+                            <a href="" class="btn-more">Подробнее</a>
+                        </div>
+                    </li>
+                    <li class="price-content-item">
+                        <section class="price-content-text">
+                            <h2 class="price-content-title">Биопилинг</h2>
                             <p class="price-content-description">от 590 р.</p>
                         </section>
                         <div class="price-content-buttons">
@@ -174,7 +313,7 @@
         </ul>
     </section>
     <section id="gallery" class="gallery">
-        <h2 class="gallery-title">Наши работы</h2>
+        <h2 class="gallery-title topic">Наши работы</h2>
         <div class="arrow-buttons">
             <button class="arrow arrow-button-left gallery-arrow">
                 <img src="img/arrow-left.png" alt="">
@@ -185,108 +324,162 @@
         </div>
         <ul class="gallery-items">
             <li class="gallery-item">
-                <!--<div class="gallery-image">1</div>-->
                 <ul class="gallery-item-items">
-                    <li class="gallery-item-item">1.1</li>
-                    <li class="gallery-item-item">1.2</li>
-                    <li class="gallery-item-item">1.3</li>
-                    <li class="gallery-item-item">1.4</li>
-                    <li class="gallery-item-item">1.5</li>
-                    <li class="gallery-item-item">1.6</li>
-                    <li class="gallery-item-item">1.7</li>
-                    <li class="gallery-item-item">1.8</li>
-                    <li class="gallery-item-item">1.9</li>
-                    <li class="gallery-item-item">1.10</li>
-                    <li class="gallery-item-item">1.11</li>
+                    <li class="gallery-item-item">
+                        <img src="img/master-julia-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-4.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-5.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-6.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-7.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-8.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-julia-9.jpg" alt="">
+                    </li>
                 </ul>
+                <span>Мастер Юлия</span>
             </li>
-            <li class="gallery-item">
-                <!--<div class="gallery-image">1</div>-->
+            <li class="gallery-item hidden">
                 <ul class="gallery-item-items">
-                    <li class="gallery-item-item">2.1</li>
-                    <li class="gallery-item-item">2.2</li>
-                    <li class="gallery-item-item">2.3</li>
-                    <li class="gallery-item-item">2.4</li>
-                    <li class="gallery-item-item">2.5</li>
-                    <li class="gallery-item-item">2.6</li>
-                    <li class="gallery-item-item">2.7</li>
-                    <li class="gallery-item-item">2.8</li>
-                    <li class="gallery-item-item">2.9</li>
-                    <li class="gallery-item-item">2.10</li>
-                    <li class="gallery-item-item">2.11</li>
+                    <li class="gallery-item-item">
+                        <img src="img/master-alena-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-alena-2.jpg" alt="">
+                    </li>
                 </ul>
+                <span>Мастер Алена</span>
             </li>
             </li>
-            <li class="gallery-item">
-                <!--<div class="gallery-image">1</div>-->
+            <li class="gallery-item hidden">
                 <ul class="gallery-item-items">
-                    <li class="gallery-item-item">3.1</li>
-                    <li class="gallery-item-item">3.2</li>
-                    <li class="gallery-item-item">3.3</li>
-                    <li class="gallery-item-item">3.4</li>
-                    <li class="gallery-item-item">3.5</li>
-                    <li class="gallery-item-item">3.6</li>
-                    <li class="gallery-item-item">3.7</li>
-                    <li class="gallery-item-item">3.8</li>
-                    <li class="gallery-item-item">3.9</li>
-                    <li class="gallery-item-item">3.10</li>
-                    <li class="gallery-item-item">3.11</li>
+                    <li class="gallery-item-item">
+                        <img src="img/master-valerya-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-valerya-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-valerya-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-valerya-4.jpg" alt="">
+                    </li>
                 </ul>
+                <span>Мастер Валерия</span>
             </li>
-            <li class="gallery-item">
+            <li class="gallery-item hidden">
                 <div class="gallery-image">
-                    <!--<div class="gallery-image">1</div>-->
                     <ul class="gallery-item-items">
-                        <li class="gallery-item-item">4.1</li>
-                        <li class="gallery-item-item">4.2</li>
-                        <li class="gallery-item-item">4.3</li>
-                        <li class="gallery-item-item">4.4</li>
-                        <li class="gallery-item-item">4.5</li>
-                        <li class="gallery-item-item">4.6</li>
-                        <li class="gallery-item-item">4.7</li>
-                        <li class="gallery-item-item">4.8</li>
-                        <li class="gallery-item-item">4.9</li>
-                        <li class="gallery-item-item">4.10</li>
-                        <li class="gallery-item-item">4.11</li>
+                        <li class="gallery-item-item">
+                            <img src="img/master-alvira-1.jpg" alt="">
+                        </li>
+                        <li class="gallery-item-item hidden">
+                            <img src="img/master-alvira-2.jpg" alt="">
+                        </li>
+                        <li class="gallery-item-item hidden">
+                            <img src="img/master-alvira-3.jpg" alt="">
+                        </li>
+                        <li class="gallery-item-item hidden">
+                            <img src="img/master-alvira-4.jpg" alt="">
+                        </li>
                     </ul>
+                    <span>Мастер Эльвира</span>
                 </div>
             </li>
-            <li class="gallery-item">
-                <!--<div class="gallery-image">1</div>-->
+            <li class="gallery-item hidden">
                 <ul class="gallery-item-items">
-                    <li class="gallery-item-item">5.1</li>
-                    <li class="gallery-item-item">5.2</li>
-                    <li class="gallery-item-item">5.3</li>
-                    <li class="gallery-item-item">5.4</li>
-                    <li class="gallery-item-item">5.5</li>
-                    <li class="gallery-item-item">5.6</li>
-                    <li class="gallery-item-item">5.7</li>
-                    <li class="gallery-item-item">5.8</li>
-                    <li class="gallery-item-item">5.9</li>
-                    <li class="gallery-item-item">5.10</li>
-                    <li class="gallery-item-item">5.11</li>
+                    <li class="gallery-item-item">
+                        <img src="img/master-natalya-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-natalya-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-natalya-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-natalya-4.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-natalya-5.jpg" alt="">
+                    </li>
                 </ul>
+                <span>Мастер Наталья</span>
             </li>
-            <li class="gallery-item">
-                <!--<div class="gallery-image">1</div>-->
+            <li class="gallery-item hidden">
                 <ul class="gallery-item-items">
-                    <li class="gallery-item-item">6.1</li>
-                    <li class="gallery-item-item">6.2</li>
-                    <li class="gallery-item-item">6.3</li>
-                    <li class="gallery-item-item">6.4</li>
-                    <li class="gallery-item-item">6.5</li>
-                    <li class="gallery-item-item">6.6</li>
-                    <li class="gallery-item-item">6.7</li>
-                    <li class="gallery-item-item">6.8</li>
-                    <li class="gallery-item-item">6.9</li>
-                    <li class="gallery-item-item">6.10</li>
-                    <li class="gallery-item-item">6.11</li>
+                    <li class="gallery-item-item">
+                        <img src="img/master-diana-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-diana-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-diana-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-diana-4.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-diana-5.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-diana-6.jpg" alt="">
+                    </li>
+                </ul>
+                <span>Мастер Диана</span>
+            </li>
+            <li class="gallery-item hidden">
+                <ul class="gallery-item-items">
+                    <li class="gallery-item-item">
+                        <img src="img/master-angelika-1.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-angelika-2.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-angelika-3.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-angelika-4.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-angelika-5.jpg" alt="">
+                    </li>
+                    <li class="gallery-item-item hidden">
+                        <img src="img/master-angelika-6.jpg" alt="">
+                    </li>
+                </ul>
+                <span>Мастер Анжелика</span>
+            </li>
+            <li class="gallery-item hidden">
+                <ul class="gallery-item-items">
+                    <li class="gallery-item-item">
+                        <img src="img/master-video.jpg" alt="">
+                    </li>
                 </ul>
             </li>
         </ul>
     </section>
     <section class="master">
-        <h2 class="master-title">Наши мастера</h2>
+        <h2 class="master-title topic">Наши мастера</h2>
         <div class="arrow-buttons">
             <button class="arrow arrow-button-left master-arrow">
                 <img src="img/arrow-left.png" alt="">
@@ -297,7 +490,9 @@
         </div>
         <ul class="master-items">
             <li id="1" class="master-item">
-                <div class="master-img"></div>
+                <div class="master-img-container">
+                    <img src="img/ava-fil-angelika-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Филатова Анжелика Александровна</h3>
                     <div class="master-descriptions">
@@ -308,8 +503,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="2" class="master-item">
-                <div class="master-img"></div>
+            <li id="2" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-leb-alena-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Алена Лебедева</h3>
                     <div class="master-descriptions">
@@ -320,8 +517,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="3" class="master-item">
-                <div class="master-img"></div>
+            <li id="3" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-scr-irina-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Ирина Александровна Скрытникова</h3>
                     <div class="master-descriptions">
@@ -332,8 +531,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="4" class="master-item">
-                <div class="master-img"></div>
+            <li id="4" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-alvira.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Эльвира</h3>
                     <div class="master-descriptions">
@@ -344,8 +545,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="5" class="master-item">
-                <div class="master-img"></div>
+            <li id="5" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-art-ekatira-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Екатерина Артюхова</h3>
                     <div class="master-descriptions">
@@ -356,8 +559,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="6" class="master-item">
-                <div class="master-img"></div>
+            <li id="6" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-ak-julia-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Юлия Акимова</h3>
                     <div class="master-descriptions">
@@ -368,8 +573,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="7" class="master-item">
-                <div class="master-img"></div>
+            <li id="7" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-rez-natalya-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Наталья Резвина</h3>
                     <div class="master-descriptions">
@@ -380,8 +587,10 @@
                     <button class="master-button-change btn-more">Подробнее</button>
                 </div>
             </li>
-            <li id="8" class="master-item">
-                <div class="master-img"></div>
+            <li id="8" class="master-item hidden">
+                <div class="master-img-container">
+                    <img src="img/ava-pan-valerya-1.jpg" alt="" class="master-img">
+                </div>
                 <div class="master-text">
                     <h3 class="master-name">Валерия Панова</h3>
                     <div class="master-descriptions">
@@ -459,9 +668,52 @@
                 </p>
             </li>
         </ul>
+        <ul class="master-card-imgs hidden">
+            <li id="1-master-img" class="master-card-img">
+                <img src="img/ava-fil-angelika-1.jpg" alt="" class="master-img">
+                <img src="img/ava-fil-angelika-2.jpg" alt="" class="master-img">
+            </li>
+            <li id="2-master-img" class="master-card-img">
+                <img src="img/ava-leb-alena-1.jpg" alt="" class="master-img">
+                <img src="img/ava-leb-alena-2.jpg" alt="" class="master-img">
+            </li>
+            <li id="3-master-img" class="master-card-img">
+                <img src="img/ava-scr-irina-1.jpg" alt="" class="master-img">
+                <img src="img/ava-scr-irina-2.jpg" alt="" class="master-img">
+                <img src="img/ava-scr-irina-3.jpg" alt="" class="master-img">
+                <img src="img/ava-scr-irina-4.jpg" alt="" class="master-img">
+            </li>
+            <li id="4-master-img" class="master-card-img">
+                <img src="img/ava-alvira.jpg" alt="" class="master-img">
+            </li>
+            <li id="5-master-img" class="master-card-img">
+                <img src="img/ava-art-ekatira-1.jpg" alt="" class="master-img">
+                <img src="img/ava-art-ekatira-2.jpg" alt="" class="master-img">
+                <img src="img/ava-art-ekatira-3.jpg" alt="" class="master-img">
+                <img src="img/ava-art-ekatira-4.jpg" alt="" class="master-img">
+                <img src="img/ava-art-ekatira-5.jpg" alt="" class="master-img">
+                <img src="img/ava-art-ekatira-6.jpg" alt="" class="master-img">
+            </li>
+            <li id="6-master-img" class="master-card-img">
+                <img src="img/ava-ak-julia-1.jpg" alt="" class="master-img">
+                <img src="img/ava-ak-julia-2.jpg" alt="" class="master-img">
+            </li>
+            <li id="7-master-img" class="master-card-img">
+                <img src="img/ava-rez-natalya-1.jpg" alt="" class="master-img">
+                <img src="img/ava-rez-natalya-2.jpg" alt="" class="master-img">
+            </li>
+            <li id="8-master-img" class="master-card-img">
+                <img src="img/ava-pan-valerya-1.jpg" alt="" class="master-img">
+                <img src="img/ava-pan-valerya-2.jpg" alt="" class="master-img">
+                <img src="img/ava-pan-valerya-3.jpg" alt="" class="master-img">
+                <img src="img/ava-pan-valerya-4.jpg" alt="" class="master-img">
+                <img src="img/ava-pan-valerya-5.jpg" alt="" class="master-img">
+                <img src="img/ava-pan-valerya-6.jpg" alt="" class="master-img">
+            </li>
+        </ul>
     </section>
     <section class="about-us">
-        <h1 class="about-us-title">О нашей студии</h1>
+        <h2 class="about-us-title topic">О нашей студии</h2>
         <section class="about-us-content">
             <ul class="about-us-items">
                 <li class="about-us-item">
@@ -472,10 +724,10 @@
                         и вниманию к деталям.
                         Встречайте красоту в каждом мгновении вместе с нами!
                     </p>
-                    <div class="about-us-media"></div>
+                    <img class="about-us-media" src="img/about-us-img.jpg">
                 </li>
                 <li class="about-us-item">
-                    <div class="about-us-media"></div>
+                    <img class="about-us-media" src="img/about-us-img.jpg">
                     <p class="about-us-description">
                         Здесь, в нашем красивом уголке,
                         каждый визит становится особым событием. Наши мастера готовы создать неповторимый образ, воплотив ваш стиль в реальность. Не упустите возможность погрузиться в мир стиля и элегантности.
@@ -498,7 +750,7 @@
         <ul class="comment-items">
             <li class="comment-item">
                 <p class="comment-item-paragraph">
-                    Отличный1 салон, делаю ногти у мастера Дианы
+                    Отличный салон, делаю ногти у мастера Дианы
                     не в первый раз. Всегда все устраивает, мастер прислушивается
                     к пожеланиям и делает так,
                     как желает клиент😻 администраторы внимательные,
@@ -507,7 +759,9 @@
                 </p>
                 <section class="comment-item-footer">
                     <section class="comment-user">
-                        <img src="" alt="" class="comment-user-img">
+                        <div class="comment-user-img">
+                            <img src="img/comment-img-1.jpg" alt="">
+                        </div>
                         <section class="comment-user-information">
                             <section class="comment-user-rating">5</section>
                             <h2 class="comment-user-name">Вика краснова</h2>
@@ -515,78 +769,51 @@
                     </section>
                 </section>
             </li>
-            <li class="comment-item">
+            <li class="comment-item hidden">
                 <p class="comment-item-paragraph">
-                    Отличный2 салон, делаю ногти у мастера Дианы
-                    не в первый раз. Всегда все устраивает, мастер прислушивается
-                    к пожеланиям и делает так,
-                    как желает клиент😻 администраторы внимательные,
-                    вежливые, всегда предложат кофе или чай с конфетками!
-                    Буду возвращаться снова, спасибо🙏
+                    Была в данной студии на стрижке с уходом для волос у Татьяны и на маникюре у Ирины.
+                    Очень внимательные мастера учли все пожелания. Рекомендую! Отличный сервис, мастера и вкусный кофе))
                 </p>
                 <section class="comment-item-footer">
                     <section class="comment-user">
-                        <img src="" alt="" class="comment-user-img">
+                        <div class="comment-user-img">
+                            <img src="img/comment-img-2.jpg" alt="">
+                        </div>
                         <section class="comment-user-information">
                             <section class="comment-user-rating">5</section>
-                            <h2 class="comment-user-name">Вика краснова</h2>
+                            <h2 class="comment-user-name">Екатерина Долгих</h2>
                         </section>
                     </section>
                 </section>
             </li>
-            <li class="comment-item">
+            <li class="comment-item hidden">
                 <p class="comment-item-paragraph">
-                    Отличный3 салон, делаю ногти у мастера Дианы
-                    не в первый раз. Всегда все устраивает, мастер прислушивается
-                    к пожеланиям и делает так,
-                    как желает клиент😻 администраторы внимательные,
-                    вежливые, всегда предложат кофе или чай с конфетками!
-                    Буду возвращаться снова, спасибо🙏
+                    Была на стрижке у Татьяны, она услышала что именно мне нужно, я осталась довольна результатом.
                 </p>
                 <section class="comment-item-footer">
                     <section class="comment-user">
-                        <img src="" alt="" class="comment-user-img">
+                        <div class="comment-user-img">
+                            <img src="img/comment-img-3.jpg" alt="">
+                        </div>
                         <section class="comment-user-information">
                             <section class="comment-user-rating">5</section>
-                            <h2 class="comment-user-name">Вика краснова</h2>
+                            <h2 class="comment-user-name">Екатерина Галева</h2>
                         </section>
                     </section>
                 </section>
             </li>
-            <li class="comment-item">
+            <li class="comment-item hidden">
                 <p class="comment-item-paragraph">
-                    Отличный4 салон, делаю ногти у мастера Дианы
-                    не в первый раз. Всегда все устраивает, мастер прислушивается
-                    к пожеланиям и делает так,
-                    как желает клиент😻 администраторы внимательные,
-                    вежливые, всегда предложат кофе или чай с конфетками!
-                    Буду возвращаться снова, спасибо🙏
+                    Уютный и чистый салон, приветливые мастера и администратор, качество услуг на высшем уровне!
                 </p>
                 <section class="comment-item-footer">
                     <section class="comment-user">
-                        <img src="" alt="" class="comment-user-img">
+                        <div class="comment-user-img">
+                            <img src="img/comment-img-4.jpg" alt="">
+                        </div>
                         <section class="comment-user-information">
                             <section class="comment-user-rating">5</section>
-                            <h2 class="comment-user-name">Вика краснова</h2>
-                        </section>
-                    </section>
-                </section>
-            </li>
-            <li class="comment-item">
-                <p class="comment-item-paragraph">
-                    Отличный5 салон, делаю ногти у мастера Дианы
-                    не в первый раз. Всегда все устраивает, мастер прислушивается
-                    к пожеланиям и делает так,
-                    как желает клиент😻 администраторы внимательные,
-                    вежливые, всегда предложат кофе или чай с конфетками!
-                    Буду возвращаться снова, спасибо🙏
-                </p>
-                <section class="comment-item-footer">
-                    <section class="comment-user">
-                        <img src="" alt="" class="comment-user-img">
-                        <section class="comment-user-information">
-                            <section class="comment-user-rating">5</section>
-                            <h2 class="comment-user-name">Вика краснова</h2>
+                            <h2 class="comment-user-name">Юлия Акимова</h2>
                         </section>
                     </section>
                 </section>
@@ -594,7 +821,7 @@
         </ul>
     </section>
     <section id="contacts" class="contact">
-        <h2 class="contact-title">Наши контакты</h2>
+        <h2 class="contact-title topic">Наши контакты</h2>
         <ul class="contact-items">
             <li class="contact-item">
                 <ul class="contact-information-items">
@@ -627,7 +854,20 @@
     </section>
 </main>
 <footer class="main-footer">
-
+    <section class="footer-content">
+        <ul class="footer-content-items">
+            <li class="footer-content-item">
+                <div class="main-logo">
+                    <img src="img/main-logo.png" alt="">
+                </div>
+            </li>
+            <li class="footer-content-item">
+                <span class="footer-item-paragraph">
+                    Сайт разработан <a href="" class="footer-link">IT-клубом ПГУТИ</a>
+                </span>
+            </li>
+        </ul>
+    </section>
 </footer>
 <script src="js/slider.js"></script>
 <script src="js/script.js"></script>
