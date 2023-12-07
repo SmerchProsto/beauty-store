@@ -40,7 +40,7 @@
 .price-item-buttons .button-signup {
     color: #000000;
     background-color: #ffffff;
-    outline: 2px solid #5C8692;
+    border: 2px solid #5C8692;
 }
 
 .nav-button-signup {
@@ -403,13 +403,14 @@
 }
 
 .price-title {
-    margin-top: 0;
+    margin: 0;
     text-align: center;
 }
 
 .price-items {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #ffffff;
     list-style: none;
 }
 
@@ -423,6 +424,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .price-item .btn-more {
@@ -437,7 +440,7 @@
 
 .price-content-items {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     list-style: none;
 }
 
@@ -672,6 +675,10 @@
     list-style: none;
 }
 
+.about-us-title {
+    margin: 0;
+}
+
 .about-us-media {
     background-color: black;
 }
@@ -752,6 +759,7 @@
 
 .comment-title {
     margin-top: 0;
+    text-align: center;
 }
 
 .comment-items {
@@ -841,7 +849,7 @@
 }
 
 .contact-title {
-    margin-top: 0;
+    margin: 0;
     text-align: center;
 }
 
@@ -916,12 +924,12 @@
 
 /*Defautl-settings*/
 
-* {
+/** {
     outline: 1px solid cornflowerblue;
-}
+}*/
 
 * {
-    transition-duration: .3s;
+   /* transition-duration: .3s;*/
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -982,8 +990,8 @@ figure {
 
 @media (min-width: 320px) {
     html {
-        font-size: 4vmin;
-        line-height: 8vmin;
+        font-size: 3vmin;
+        line-height: 6vmin;
     }
 
     .button-signup {
