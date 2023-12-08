@@ -333,6 +333,15 @@
         flex-wrap: wrap;
         justify-content: center;
         min-height: 650px;
+        padding: 40px 20px 80px;
+        font-size: 24px;
+        line-height: 48px;
+
+    }
+
+    h1 {
+        font-size: 50px;
+        line-height: 70px;
     }
 
     .main-header-content {
@@ -340,16 +349,13 @@
     }
 
     .main-header-content > * {
-        width: 605px;
+        width: 490px;
+        margin-right: 10px;
     }
 
-    /*.main-header-content > * {
-        flex: 1;
-    }*/
-
-    /*.main-header-content > * {
-        flex-shrink: 1;
-    }*/
+    .main-header-content > *:last-child {
+        margin-right: 0;
+    }
 
     .button-signup {
         width: 240px;
@@ -385,6 +391,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.work .btn-more a{
+    color: #000000;
+    text-decoration: none;
 }
 
 .work-item {
@@ -461,6 +472,10 @@
         min-width: 190px;
         min-height: 60px;
         align-self: center;
+    }
+
+    .work-item-description {
+        min-height: 135px;
     }
 }
 
@@ -583,6 +598,12 @@
     .price-item {
         width: 430px;
         background-color: #ffffff;
+    }
+
+    .price-item:not(.price-item-img) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .price-item:not(.price-item-img) {
