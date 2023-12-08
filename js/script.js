@@ -25,11 +25,6 @@ const changeMenu = () => {
 }
 
 buttonOpen.addEventListener('click', changeMenu);
-navItems.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        changeMenu();
-    }
-})
 
 const masters = document.querySelector('.master-items');
 const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
@@ -167,32 +162,13 @@ if (window.innerWidth >= 768) {
     workSlider.makeHideOtherSlides(0, 1);
 
     const gallerySlider = new Slider(galleryLiArray, 6);
-    //let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
     gallerySlider.makeHideOtherSlides(0,5);
-    /*let galleryItemSliderTimer = setInterval(() => {
-        galleryItemSlider.moveRight(1)
-    }, 2500)
-    gallerySlider.setIds();
-
-    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
-    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
-    gallerySlider.arrowRight.addEventListener('click', () => {
-        gallerySlider.moveRight(1);
-        clearInterval(galleryItemSliderTimer);
-        galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
-        galleryItemSlider.makeHideOtherSlides(0,0);
-        galleryItemSliderTimer = setInterval(() => {
-            galleryItemSlider.moveRight(1)
-        }, 2500);
-    });
-    gallerySlider.arrowLeft.addEventListener('click', () => {
-        gallerySlider.moveLeft(1);
-    });
-    gallerySlider.makeHideOtherSlides(0, 0);*/
-
-
 } else if (window.innerWidth < 768) {
-
+    navItems.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            changeMenu();
+        }
+    })
     const workSlider = new Slider(worksLiArray, 1);
     workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
     workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
