@@ -25,11 +25,6 @@ const changeMenu = () => {
 }
 
 buttonOpen.addEventListener('click', changeMenu);
-navItems.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-        changeMenu();
-    }
-})
 
 const masters = document.querySelector('.master-items');
 const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
@@ -121,54 +116,59 @@ const changeMasterCard = (elem) => {
     }
 }
 
+let priceImgSliders = [];
+priceItemImgArray.map((item, index) => {
+    priceImgSliders.push(new Slider(Array.from(item.querySelectorAll('.price-img')), 1));
+    priceImgSliders[index].makeHideOtherSlides(0, 0);
+
+    setInterval(() => {
+        priceImgSliders[index].moveRight(1);
+    }, 2500)
+})
+
+const masterSlider = new Slider(mastersLiArray, 1);
+masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
+masterSlider.arrowRight = document.querySelector('.master .arrow-button-right');
+masterSlider.arrowRight.addEventListener('click', () => {
+    masterSlider.moveRight(1);
+});
+masterSlider.arrowLeft.addEventListener('click', () => {
+    masterSlider.moveLeft(1);
+});
+masterSlider.makeHideOtherSlides(0, 0);
+
+const commentSlider = new Slider(commentsLiArray, 1);
+commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+commentSlider.arrowRight.addEventListener('click', () => {
+    commentSlider.moveRight(1);
+});
+commentSlider.arrowLeft.addEventListener('click', () => {
+    commentSlider.moveLeft(1);
+});
+commentSlider.makeHideOtherSlides(0, 0);
+
 
 if (window.innerWidth >= 768) {
-    const masterSlider = new Slider(mastersLiArray, 4);
-    masterSlider.arrowLeft = document.querySelector('.arrow-button-left');
-    masterSlider.arrowRight = document.querySelector('.arrow-button-right');
-    masterSlider.arrowRight.addEventListener('click', () => {
-        masterSlider.moveRight(4);
-    })
-    masterSlider.arrowLeft.addEventListener('click', () => {
-        masterSlider.moveLeft(4);
-    })
-    masterSlider.makeHideOtherSlides(0, 3);
-
-    const commentSlider = new Slider(commentsLiArray, 2);
-    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
-    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
-    commentSlider.arrowRight.addEventListener('click', () => {
-        commentSlider.moveRight(2);
+    const workSlider = new Slider(worksLiArray, 2);
+    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
+    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
+    workSlider.arrowRight.addEventListener('click', () => {
+        workSlider.moveRight(2);
     });
-    commentSlider.arrowLeft.addEventListener('click', () => {
-        commentSlider.moveLeft(2);
+    workSlider.arrowLeft.addEventListener('click', () => {
+        workSlider.moveLeft(2);
     });
-    commentSlider.makeHideOtherSlides(0, 1);
+    workSlider.makeHideOtherSlides(0, 1);
 
+    const gallerySlider = new Slider(galleryLiArray, 6);
+    gallerySlider.makeHideOtherSlides(0,5);
 } else if (window.innerWidth < 768) {
-
-    const masterSlider = new Slider(mastersLiArray, 1);
-    masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
-    masterSlider.arrowRight = document.querySelector('.master .arrow-button-right');
-    masterSlider.arrowRight.addEventListener('click', () => {
-        masterSlider.moveRight(1);
-    });
-    masterSlider.arrowLeft.addEventListener('click', () => {
-        masterSlider.moveLeft(1);
-    });
-    masterSlider.makeHideOtherSlides(0, 0);
-
-    const commentSlider = new Slider(commentsLiArray, 1);
-    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
-    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
-    commentSlider.arrowRight.addEventListener('click', () => {
-        commentSlider.moveRight(1);
-    });
-    commentSlider.arrowLeft.addEventListener('click', () => {
-        commentSlider.moveLeft(1);
-    });
-    commentSlider.makeHideOtherSlides(0, 0);
-
+    navItems.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            changeMenu();
+        }
+    })
     const workSlider = new Slider(worksLiArray, 1);
     workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
     workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
@@ -204,14 +204,49 @@ if (window.innerWidth >= 768) {
     });
     gallerySlider.makeHideOtherSlides(0, 0);
 
-    let priceImgSliders = [];
-    priceItemImgArray.map((item, index) => {
-        priceImgSliders.push(new Slider(Array.from(item.querySelectorAll('.price-img')), 1));
-        priceImgSliders[index].makeHideOtherSlides(0, 0);
-
-        setInterval(() => {
-            priceImgSliders[index].moveRight(1);
-        }, 2500)
+}
+if (window.innerWidth >= 1024) {
+    const priceItems = Array.from(document.querySelectorAll('.price-item'));
+    const priceSlider = new Slider(priceItems, 1);
+    priceSlider.setIds();
+    let countElem = 0;
+    let countColumn = 0;
+    priceItems.map((elem, index) => {
+        if (countColumn % 2 !== 0) {
+            if (index >= 2 && index % 2 === 0) {
+                elem.style.order = (index+1).toString();
+            }   else if (index >= 2 && index % 2 !== 0) {
+                elem.style.order = (index-1).toString();
+            }
+        }
+        else {
+            elem.style.order = index.toString();
+        }
+        countElem++;
+        if (countElem % 2 === 0) {
+            countColumn++;
+        }
     })
 
+    const masterSlider = new Slider(mastersLiArray, 4);
+    masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
+    masterSlider.arrowRight = document.querySelector('.master .arrow-button-right');
+    masterSlider.arrowRight.addEventListener('click', () => {
+        masterSlider.moveRight(4);
+    });
+    masterSlider.arrowLeft.addEventListener('click', () => {
+        masterSlider.moveLeft(4);
+    });
+    masterSlider.makeHideOtherSlides(0, 3);
+
+    const commentSlider = new Slider(commentsLiArray, 2);
+    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        commentSlider.moveRight(2);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(2);
+    });
+    commentSlider.makeHideOtherSlides(0, 1);
 }
