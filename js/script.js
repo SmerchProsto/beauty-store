@@ -30,10 +30,11 @@ const masters = document.querySelector('.master-items');
 const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
 const commentsLiArray = Array.from(document.querySelectorAll('.comment-item'));
 const worksLiArray = Array.from(document.querySelectorAll('.work-item'));
+const gallery = document.querySelector('.gallery-items');
 const galleryLiArray = Array.from(document.querySelectorAll('.gallery-item'));
 const priceItemImgArray = Array.from(document.querySelectorAll('.price-item-img'));
 
-const findParent = (childElement, parentName) => {
+const findParentByTag = (childElement, parentName) => {
 
     if (childElement.parentElement.tagName === parentName) {
         return childElement.parentElement;
@@ -49,9 +50,25 @@ const findParent = (childElement, parentName) => {
     }
 }
 
+const findParentByClass = (childElement, parentNameClass) => {
+
+    if (childElement.parentElement.classList.contains(parentNameClass)) {
+        return childElement.parentElement;
+    } else {
+        while (!childElement.parentElement.classList.contains(parentNameClass)) {
+            childElement = childElement.parentElement;
+        }
+        if (childElement.parentElement.classList.contains(parentNameClass)) {
+            return childElement.parentElement;
+        }
+
+        return false;
+    }
+}
+
 masters.addEventListener('click', (e) => {
     let elem = e.target;
-    let answerFind = findParent(elem, 'LI');
+    let answerFind = findParentByTag(elem, 'LI');
 
     if (typeof answerFind === 'object') {
         elem = answerFind
@@ -148,6 +165,61 @@ commentSlider.arrowLeft.addEventListener('click', () => {
 });
 commentSlider.makeHideOtherSlides(0, 0);
 
+createOrDeleteArrows = (elem) => {
+    const blockClassnameArrows = 'arrow-buttons';
+    if (elem.classList.contains('gallery-item-scale')) {
+        const srcRightArrow = 'img/arrow-right.png';
+        const srcLeftArrow = 'img/arrow-left.png';
+        let tagArrowButtons = document.createElement('div');
+        tagArrowButtons.classList.add(blockClassnameArrows);
+
+        let buttonArrowLeft = document.createElement('button');
+        buttonArrowLeft.classList.add('arrow', 'arrow-button-left', elem.classList[0] + "-arrow");
+
+        let arrowImgLeft = document.createElement('img');
+        arrowImgLeft.src = srcLeftArrow;
+
+        buttonArrowLeft.append(arrowImgLeft);
+
+        let buttonArrowRight = document.createElement('button');
+        buttonArrowRight.classList.add('arrow', 'arrow-button-right', elem.classList[0] + '-arrow');
+
+        let arrowImgRight = arrowImgLeft.cloneNode(true)
+        arrowImgRight.src = srcRightArrow;
+
+        buttonArrowRight.append(arrowImgRight)
+
+        tagArrowButtons.append(buttonArrowLeft);
+        tagArrowButtons.append(buttonArrowRight);
+
+        elem.append(tagArrowButtons);
+    } else  {
+        elem.querySelector('.' + blockClassnameArrows).remove();
+    }
+
+}
+
+createOrDeleteChrist = (elem) => {
+    const blockClassNameChrist = 'wrapper-christ-close'
+    if (elem.classList.contains('gallery-item-scale')) {
+        const srcImgChrist = 'img/christ.svg'
+        let divChrist = document.createElement('div');
+        divChrist.classList.add(blockClassNameChrist);
+
+        let buttonChrist = document.createElement('button');
+        buttonChrist.classList.add('christ-button', elem.classList[0] + '-christ');
+
+        let imgChrist = document.createElement('img');
+        imgChrist.src = srcImgChrist;
+
+        buttonChrist.append(imgChrist);
+        divChrist.append(buttonChrist);
+        elem.append(divChrist);
+    }   else {
+        elem.querySelector('.' + blockClassNameChrist).remove();
+    }
+}
+
 
 if (window.innerWidth >= 768) {
     const workSlider = new Slider(worksLiArray, 2);
@@ -227,6 +299,45 @@ if (window.innerWidth >= 1024) {
             countColumn++;
         }
     })
+
+    /*Slider for gallery's li's elements */
+    gallery.addEventListener('click', (e) => {
+        let elem = e.target;
+        let answerFind = findParentByClass(elem, 'gallery-item');
+
+        if (typeof answerFind === 'object') {
+            elem = answerFind;
+            elem.classList.toggle('gallery-item-scale');
+            document.querySelector('html').classList.toggle('overlay');
+            createOrDeleteArrows(elem);
+            createOrDeleteChrist(elem);
+            let slidesInElem = Array.from(elem.querySelectorAll('.gallery-item-item'));
+            let sliderInElem = new Slider(slidesInElem, 1);
+            sliderInElem.makeHideOtherSlides(0,0);
+            sliderInElem.arrowLeft = elem.querySelector('.arrow-button-left');
+            sliderInElem.arrowRight = elem.querySelector('.arrow-button-right');
+            sliderInElem.christ = elem.querySelector('.christ')
+
+            if (elem.classList.contains('gallery-item-scale')) {
+                sliderInElem.arrowLeft.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    sliderInElem.moveLeft(1);
+                });
+                sliderInElem.arrowRight.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    sliderInElem.moveRight(1);
+                });
+            }   else {
+                slidesInElem = null;
+                sliderInElem = null;
+            }
+        } else if (!answerFind) {
+            console.log('not found');
+        }
+    })
+
 
     const masterSlider = new Slider(mastersLiArray, 4);
     masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
