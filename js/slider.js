@@ -6,6 +6,7 @@ class Slider {
         this.slideBack = 0;
         this._arrowLeft = null;
         this._arrowRight = null;
+        this._christ = null;
         this._id = this.slideHead;
     }
 
@@ -87,6 +88,7 @@ class Slider {
 
     }
 
+
     setIds = () => {
         this.slides.map((slide, index) => {
             slide.setAttribute('id', slide.classList[0] + index);
@@ -113,5 +115,12 @@ class Slider {
     }
     set arrowRight(arrow) {
         this._arrowRight = arrow;
+    }
+
+    get christ() {
+        return this._christ;
+    }
+    set christ(christ) {
+        this._christ = christ;
     }
 }
