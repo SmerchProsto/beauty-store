@@ -163,10 +163,6 @@ containers.forEach(container => {
     });
 });
 
-/*
-let priceImgCount = 4
-document.documentElement.style.setProperty('--slides', priceImgCount.toString());
-*/
 
 const masterSlider = new Slider(mastersLiArray, 1);
 masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
@@ -245,39 +241,8 @@ createOrDeleteChrist = (elem) => {
     }
 }
 
-
-if (window.innerWidth >= 768) {
-    const workSlider = new Slider(worksLiArray, 2);
-    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
-    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
-    workSlider.arrowRight.addEventListener('click', () => {
-        workSlider.moveRight(2);
-    });
-    workSlider.arrowLeft.addEventListener('click', () => {
-        workSlider.moveLeft(2);
-    });
-    workSlider.makeHideOtherSlides(0, 1);
-
-    const gallerySlider = new Slider(galleryLiArray, 6);
-    gallerySlider.makeHideOtherSlides(0,5);
-} else if (window.innerWidth < 768) {
-    navItems.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            changeMenu();
-        }
-    })
-    const workSlider = new Slider(worksLiArray, 1);
-    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
-    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
-    workSlider.arrowRight.addEventListener('click', () => {
-        workSlider.moveRight(1);
-    });
-    workSlider.arrowLeft.addEventListener('click', () => {
-        workSlider.moveLeft(1);
-    });
-    workSlider.makeHideOtherSlides(0, 0);
-
-    const gallerySlider = new Slider(galleryLiArray, 1);
+if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    /*const gallerySlider = new Slider(galleryLiArray, 1);
     let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
     galleryItemSlider.makeHideOtherSlides(0,0);
     let galleryItemSliderTimer = setInterval(() => {
@@ -299,7 +264,124 @@ if (window.innerWidth >= 768) {
     gallerySlider.arrowLeft.addEventListener('click', () => {
         gallerySlider.moveLeft(1);
     });
+    gallerySlider.makeHideOtherSlides(0, 0);*/
+    // Get all containers
+    const containers = document.querySelectorAll('.gallery-item-items');
+
+// Loop through each container
+    containers.forEach(container => {
+        // Get the photos in the container
+        const photos = container.querySelectorAll('.gallery-item-item');
+
+        // Calculate total animation time and add a CSS variable
+        const totalAnimationTime = photos.length * 10; // Assuming 4 seconds per photo
+        document.documentElement.style.setProperty('--total-animation-time-gallery', `${totalAnimationTime}s`);
+
+        // Generate CSS for each photo in the container
+        photos.forEach((photo, index) => {
+            // Calculate and set animation delay
+            const animationDelay = totalAnimationTime - 4 * (index + 1);
+            photo.style.animationDelay = `-${animationDelay}s`;
+        });
+    });
+
+    const gallerySlider = new Slider(Array.from(document.querySelectorAll('.gallery-item')), 1);
     gallerySlider.makeHideOtherSlides(0, 0);
+    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
+    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
+    gallerySlider.arrowRight.addEventListener('click', () => {
+        gallerySlider.moveRight(1);
+    });
+
+    gallerySlider.arrowLeft.addEventListener('click', () => {
+        gallerySlider.moveLeft(1);
+    });
+}
+
+
+if (window.innerWidth >= 768) {
+    const workSlider = new Slider(worksLiArray, 2);
+    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
+    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
+    workSlider.arrowRight.addEventListener('click', () => {
+        workSlider.moveRight(2);
+    });
+    workSlider.arrowLeft.addEventListener('click', () => {
+        workSlider.moveLeft(2);
+    });
+    workSlider.makeHideOtherSlides(0, 1);
+
+}   else if (window.innerWidth < 768) {
+    navItems.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            changeMenu();
+        }
+    })
+    const workSlider = new Slider(worksLiArray, 1);
+    workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
+    workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
+    workSlider.arrowRight.addEventListener('click', () => {
+        workSlider.moveRight(1);
+    });
+    workSlider.arrowLeft.addEventListener('click', () => {
+        workSlider.moveLeft(1);
+    });
+    workSlider.makeHideOtherSlides(0, 0);
+
+    /*const gallerySlider = new Slider(galleryLiArray, 1);
+    let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
+    galleryItemSlider.makeHideOtherSlides(0,0);
+    let galleryItemSliderTimer = setInterval(() => {
+        galleryItemSlider.moveRight(1)
+    }, 2500)
+    gallerySlider.setIds();
+
+    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
+    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
+    gallerySlider.arrowRight.addEventListener('click', () => {
+        gallerySlider.moveRight(1);
+        clearInterval(galleryItemSliderTimer);
+        galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
+        galleryItemSlider.makeHideOtherSlides(0,0);
+        galleryItemSliderTimer = setInterval(() => {
+            galleryItemSlider.moveRight(1)
+        }, 2500);
+    });
+    gallerySlider.arrowLeft.addEventListener('click', () => {
+        gallerySlider.moveLeft(1);
+    });
+    gallerySlider.makeHideOtherSlides(0, 0);*/
+    // Get all containers
+    const containers = document.querySelectorAll('.gallery-item-items');
+
+// Loop through each container
+    containers.forEach(container => {
+        // Get the photos in the container
+        const photos = container.querySelectorAll('.gallery-item-item');
+
+        // Calculate total animation time and add a CSS variable
+        const totalAnimationTime = photos.length * 10; // Assuming 4 seconds per photo
+        document.documentElement.style.setProperty('--total-animation-time-gallery', `${totalAnimationTime}s`);
+
+        // Generate CSS for each photo in the container
+        photos.forEach((photo, index) => {
+            // Calculate and set animation delay
+            const animationDelay = totalAnimationTime - 4 * (index + 1);
+            photo.style.animationDelay = `-${animationDelay}s`;
+        });
+    });
+
+    const gallerySlider = new Slider(Array.from(document.querySelectorAll('.gallery-item')), 1);
+    gallerySlider.makeHideOtherSlides(0, 0);
+    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
+    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
+    gallerySlider.arrowRight.addEventListener('click', () => {
+        gallerySlider.moveRight(1);
+    });
+
+    gallerySlider.arrowLeft.addEventListener('click', () => {
+        gallerySlider.moveLeft(1);
+    });
 
 }
 if (window.innerWidth >= 1024) {
@@ -324,6 +406,9 @@ if (window.innerWidth >= 1024) {
             countColumn++;
         }
     })
+
+    const gallerySlider = new Slider(galleryLiArray, 8);
+    gallerySlider.makeHideOtherSlides(0,7);
 
     /*Slider for gallery's li's elements */
     gallery.addEventListener('click', (e) => {
