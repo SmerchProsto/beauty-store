@@ -365,11 +365,24 @@
     .content-img-container {
         position: relative;
     }
+    @keyframes translateHeaderImg {
+        100% {
+            transform: translateX(-10%);
+        }
+
+    }
 
     .content-img-container img{
-        position: relative;
-        left: -10%;
+        transform-origin: center center;
+        transition-property: transform;
     }
+
+    .content-img-container img {
+        animation: translateHeaderImg 2s 1;
+        animation-fill-mode: forwards;
+    }
+
+
 }
 
 
@@ -511,6 +524,38 @@
     justify-content: space-between;
 }
 
+.price-item-img {
+    position: relative;
+    background-color: #000000;
+}
+
+:root {
+    --total-animation-time: 0
+}
+
+.price-img {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    animation: round var(--total-animation-time) infinite;
+    opacity: 0;
+}
+
+@keyframes round {
+    0%, 100% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .price-item-buttons {
     display: flex;
     flex-direction: row;
@@ -537,6 +582,8 @@
 
 .price-content-item {
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #134134;
 }
 
 .price-content-text {
@@ -572,16 +619,25 @@
         margin-top: 15px;
     }
 
+    .price-item-img {
+        min-height: 340px;
+    }
+
     .price-item-img img {
-        min-height: 300px;
+        width: 100%;
+        height: 100%;
     }
 
     .price-item .btn-more {
         min-width: 50px;
         font-family: 'Manrope', sans-serif;
     }
+}
 
-
+@media (min-width: 768px) {
+    .price-item-img {
+        min-height: 820px;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -596,9 +652,10 @@
     }
 
     .price-item {
-        width: 430px;
+        width: 480px;
         background-color: #ffffff;
     }
+
 
     .price-item:not(.price-item-img) {
         display: flex;
@@ -612,13 +669,17 @@
 
     .price-item-img {
         display: flex;
-        height: 655px;
+        min-height: 435px;
     }
 }
 
 @media (min-width: 1200px) {
     .price-item {
         width: 605px;
+    }
+
+    .price-item-img {
+        height: 655px;
     }
 }
 
@@ -1125,17 +1186,22 @@
     list-style: none;
 }
 
+/*.inst-mark-link:hover {
+    color: green;
+}*/
+
 .contact-items {
     padding: 15px;
 }
 
-.contact-information-tel {
+.contact-information-link {
     color: #000000;
-    text-decoration: none;
 }
 
-.contact-information-mail {
-    color: #000000;
+.contact-link-description {
+    margin: 0;
+    font-size: 12px;
+    line-height: 24px;
 }
 
 @media (min-width: 320px) and (max-width: 999px) {
@@ -1201,7 +1267,7 @@
 }
 
 .main-nav, .header-content-img, .content-img-container,
-.gallery-items, .master-items, .gallery, .gallery-item-scale {
+.gallery-items, .master-items, .gallery, .gallery-item-scale, .contact *{
     overflow: visible;
 }
 
@@ -1236,6 +1302,18 @@ figure {
     padding: 0;
 }
 
+.inst-mark {
+    position: relative;
+}
+
+.inst-mark-description {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
 
 .arrow-button-right, .arrow-button-left {
     position: absolute;
@@ -1313,11 +1391,37 @@ figure {
         font-size: 8vmin;
         line-height: 16vmin;
     }
+
+    .inst-mark:hover .inst-mark-description {
+        position: absolute;
+        transform-origin: left bottom;
+        transform: translate(-40%, 5%);
+        z-index: 10;
+        clip: auto; /*rect(auto, 220px, auto, 0);*/
+        min-width: 300px;
+        height: auto;
+        font-size: 7px;
+        line-height: 14px;
+        background-color: #ffffff;
+    }
 }
 
 @media (min-width: 768px) {
     .arrow {
         width: 70px;
         height: 60px;
+    }
+
+    .inst-mark:hover .inst-mark-description {
+        position: absolute;
+        transform-origin: left bottom;
+        transform: translate(50%, -80%);
+        z-index: 10;
+        clip: auto; /*rect(auto, 220px, auto, 0);*/
+        width: auto;
+        height: auto;
+        font-size: 8px;
+        line-height: 16px;
+        background-color: #ffffff;
     }
 }

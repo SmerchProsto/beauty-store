@@ -133,15 +133,40 @@ const changeMasterCard = (elem) => {
     }
 }
 
-let priceImgSliders = [];
-priceItemImgArray.map((item, index) => {
+/*let priceImgSliders = [];*/
+/*priceItemImgArray.map((item, index) => {
     priceImgSliders.push(new Slider(Array.from(item.querySelectorAll('.price-img')), 1));
     priceImgSliders[index].makeHideOtherSlides(0, 0);
 
     setInterval(() => {
         priceImgSliders[index].moveRight(1);
     }, 2500)
-})
+})*/
+
+// Get all containers
+const containers = document.querySelectorAll('.price-item-img');
+
+// Loop through each container
+containers.forEach(container => {
+    // Get the photos in the container
+    const photos = container.querySelectorAll('.price-img');
+
+    // Calculate total animation time and add a CSS variable
+    const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
+    document.documentElement.style.setProperty('--total-animation-time', `${totalAnimationTime}s`);
+
+    // Generate CSS for each photo in the container
+    photos.forEach((photo, index) => {
+        // Calculate and set animation delay
+        const animationDelay = totalAnimationTime - 4 * (index + 1);
+        photo.style.animationDelay = `-${animationDelay}s`;
+    });
+});
+
+/*
+let priceImgCount = 4
+document.documentElement.style.setProperty('--slides', priceImgCount.toString());
+*/
 
 const masterSlider = new Slider(mastersLiArray, 1);
 masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
