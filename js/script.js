@@ -9,19 +9,22 @@ const buttonSignUp = document.querySelector('.button-signup');
     toggle.addEventListener('click', function(e) {
         this.classList.toggle('opened');
     });
+
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.innerWidth <= 999) {
+/*if (window.innerWidth < 999) {
+    /!*document.addEventListener("DOMContentLoaded", () => {
         changeMenu()
-    }
-})
+    })*!/
+}*/
+
 const changeMenu = () => {
-    if (navItems.classList.contains('hidden')) {
+    /*if (navItems.classList.contains('hidden')) {
         navItems.classList.remove('hidden');
     } else if (!navItems.classList.contains('hidden')) {
         navItems.classList.add('hidden');
-    }
+    }*/
+    navItems.classList.toggle("collapsed");
 }
 
 buttonOpen.addEventListener('click', changeMenu);
@@ -296,6 +299,8 @@ if (window.innerWidth >= 768 && window.innerWidth < 1024) {
     gallerySlider.arrowLeft.addEventListener('click', () => {
         gallerySlider.moveLeft(1);
     });
+
+
 }
 
 
@@ -311,6 +316,17 @@ if (window.innerWidth >= 768) {
     });
     workSlider.makeHideOtherSlides(0, 1);
 
+    const commentSlider = new Slider(commentsLiArray, 2);
+    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        commentSlider.moveRight(2, true);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(2, true);
+    });
+    commentSlider.makeHideOtherSlides(0, 1);
+
 }   else if (window.innerWidth < 768) {
 
     navItems.addEventListener('click', (e) => {
@@ -319,9 +335,9 @@ if (window.innerWidth >= 768) {
         }
     })
     const workSlider = new Slider(worksLiArray, 1);
-    let elemsOfSlider = Array.from(document.querySelectorAll('.work .work-left-show'))
+    elemsOfSlider = Array.from(document.querySelectorAll('.work .left-show-animation'))
     elemsOfSlider.map((elem) => {
-        elem.classList.remove('work-left-show');
+        elem.classList.remove('left-show-animation');
     })
     workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
     workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
@@ -332,6 +348,36 @@ if (window.innerWidth >= 768) {
         workSlider.moveLeft(1, true);
     });
     workSlider.makeHideOtherSlides(0, 0);
+
+    const commentSlider = new Slider(commentsLiArray, 1);
+    elemsOfSlider = Array.from(document.querySelectorAll('.comment .left-show-animation'))
+    elemsOfSlider.map((elem) => {
+        elem.classList.remove('left-show-animation');
+    })
+    commentSlider.arrowLeft = document.querySelector('.comment .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.comment .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        commentSlider.moveRight(1, true);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(1, true);
+    });
+    commentSlider.makeHideOtherSlides(0, 0);
+
+    /*const commentSlider = new Slider(commentsLiArray, 1);
+    let elemsOfSlider = Array.from(document.querySelectorAll('.comment .left-show-animation'))
+    elemsOfSlider.map((elem) => {
+        elem.classList.remove('left-show-animation');
+    })
+    commentSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
+    commentSlider.arrowRight = document.querySelector('.work .arrow-button-right');
+    commentSlider.arrowRight.addEventListener('click', () => {
+        workSlider.moveRight(1, true);
+    });
+    commentSlider.arrowLeft.addEventListener('click', () => {
+        commentSlider.moveLeft(1, true);
+    });
+    commentSlider.makeHideOtherSlides(0, 0);*/
 
     /*const gallerySlider = new Slider(galleryLiArray, 1);
     let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);

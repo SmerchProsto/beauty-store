@@ -59,9 +59,9 @@ class Slider {
         let nameDirection;
 
         if (direction === 'left') {
-            nameDirection = 'work-left-show';
+            nameDirection = 'left-show-animation';
         } else {
-            nameDirection = 'work-right-show';
+            nameDirection = 'right-show-animation';
         }
         let i = 0;
 
