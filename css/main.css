@@ -1006,7 +1006,7 @@
 .master-item {
     display: flex;
     cursor: pointer;
-    border-radius: 35px;
+    border-radius: 75px;
 }
 
 .master-text {
@@ -1017,9 +1017,9 @@
     margin-top: 0;
 }
 
-.master-img-container {
+/*.master-img-container {
     border-radius: 35px;
-}
+}*/
 
 @media (min-width: 320px) {
     .master-item {
