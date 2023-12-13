@@ -472,8 +472,165 @@
     border: 2px solid #5C8692;
 }
 
+@keyframes moveLeftShow {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 15%;
+    }
+}
+
+@keyframes moveLeft2Show {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes moveRightShow {
+    0% {
+        right: 100%;
+    }
+
+    100% {
+        right: 15%;
+    }
+}
+
+@keyframes moveRight2Show {
+    0% {
+        right: 100%;
+    }
+
+    100% {
+        right: 55%;
+    }
+}
+
+@media (min-width: 320px) and  (max-width: 765px) {
+    @keyframes moveLeftShow {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 0%;
+        }
+    }
+
+    @keyframes moveLeft2Show {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 0%;
+        }
+    }
+
+    @keyframes moveRightShow {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 0%;
+        }
+    }
+
+    @keyframes moveRight2Show {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 0%;
+        }
+    }
+}
+
+@media (min-width: 768px) and  (max-width: 999px) {
+    @keyframes moveLeftShow {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 10%;
+        }
+    }
+
+    @keyframes moveLeft2Show {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 50%;
+        }
+    }
+
+    @keyframes moveRightShow {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 10%;
+        }
+    }
+
+    @keyframes moveRight2Show {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 50%;
+        }
+    }
+}
+
+.work {
+    position: relative;
+}
+
+.work-left-show:not(.hidden):nth-of-type(n) {
+    position: absolute;
+    top: 5%;
+    animation: moveLeftShow 4s 1;
+    animation-fill-mode: forwards;
+}
+
+.work-left-show:not(.hidden):nth-of-type(2n) {
+    position: absolute;
+    top: 5%;
+    animation: moveLeft2Show 4s 1;
+    animation-fill-mode: forwards;
+}
+
+.work-right-show:not(.hidden):nth-of-type(n) {
+    position: absolute;
+    top: 5%;
+    animation: moveRightShow 4s 1;
+    animation-fill-mode: forwards;
+}
+
+.work-right-show:not(.hidden):nth-of-type(2n) {
+    position: absolute;
+    top: 5%;
+    animation: moveRight2Show 4s 1;
+    animation-fill-mode: forwards;
+}
+
 @media (min-width: 320px) and (max-width: 999px) {
     .work {
+        min-height: 400px;
         padding: 20px;
     }
 
@@ -484,7 +641,58 @@
         min-height: 300px;
     }
 
+}
 
+@media (min-width: 425px) and (max-width: 765px) {
+    @keyframes moveLeftShow {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 10%;
+        }
+    }
+
+    @keyframes moveLeft2Show {
+        0% {
+            left: 100%;
+        }
+
+        100% {
+            left: 10%;
+        }
+    }
+
+    @keyframes moveRightShow {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 10%;
+        }
+    }
+
+    @keyframes moveRight2Show {
+        0% {
+            right: 100%;
+        }
+
+        100% {
+            right: 10%;
+        }
+    }
+
+    .work-left-show:not(.hidden):nth-of-type(n), .work-right-show:not(.hidden):nth-of-type(n) {
+        top: -1%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+    .work {
+        min-height: 580px;
+    }
 }
 
 @media (min-width: 1000px) {

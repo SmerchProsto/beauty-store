@@ -304,27 +304,32 @@ if (window.innerWidth >= 768) {
     workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
     workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
     workSlider.arrowRight.addEventListener('click', () => {
-        workSlider.moveRight(2);
+        workSlider.moveRight(2, true);
     });
     workSlider.arrowLeft.addEventListener('click', () => {
-        workSlider.moveLeft(2);
+        workSlider.moveLeft(2, true);
     });
     workSlider.makeHideOtherSlides(0, 1);
 
 }   else if (window.innerWidth < 768) {
+
     navItems.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
             changeMenu();
         }
     })
     const workSlider = new Slider(worksLiArray, 1);
+    let elemsOfSlider = Array.from(document.querySelectorAll('.work .work-left-show'))
+    elemsOfSlider.map((elem) => {
+        elem.classList.remove('work-left-show');
+    })
     workSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
     workSlider.arrowRight = document.querySelector('.work .arrow-button-right');
     workSlider.arrowRight.addEventListener('click', () => {
-        workSlider.moveRight(1);
+        workSlider.moveRight(1, true);
     });
     workSlider.arrowLeft.addEventListener('click', () => {
-        workSlider.moveLeft(1);
+        workSlider.moveLeft(1, true);
     });
     workSlider.makeHideOtherSlides(0, 0);
 
