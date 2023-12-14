@@ -301,22 +301,23 @@ if (window.innerWidth >= 768 && window.innerWidth < 1024) {
     });
     gallerySlider.makeHideOtherSlides(0, 0);*/
     // Get all containers
-    const containers = document.querySelectorAll('.gallery-item-items');
-
-// Loop through each container
-    containers.forEach(container => {
+    let containersGl = document.querySelectorAll('.gallery-item-items');
+    // Loop through each container
+    containersGl.forEach(container => {
         // Get the photos in the container
         const photos = container.querySelectorAll('.gallery-item-item');
 
-        // Calculate total animation time and add a CSS variable
-        const totalAnimationTime = photos.length * 10; // Assuming 4 seconds per photo
-        document.documentElement.style.setProperty('--total-animation-time-gallery', `${totalAnimationTime}s`);
+        // Set a constant animation duration (e.g., 10 seconds per photo)
+        const animationDuration = 12;
+
+        // Calculate total animation time for all photos
+        const totalAnimationTime = animationDuration * photos.length;
 
         // Generate CSS for each photo in the container
         photos.forEach((photo, index) => {
             // Calculate and set animation delay
-            const animationDelay = totalAnimationTime - 4 * (index + 1);
-            photo.style.animationDelay = `-${animationDelay}s`;
+            const animationDelay = (index + 1) * animationDuration / photos.length;
+            photo.style.animation = `round ${animationDuration}s ${animationDelay}s infinite`;
         });
     });
 
@@ -435,7 +436,7 @@ if (window.innerWidth >= 768) {
     });
     gallerySlider.makeHideOtherSlides(0, 0);*/
     // Get all containers
-    const containers = document.querySelectorAll('.gallery-item-items');
+/*    const containers = document.querySelectorAll('.gallery-item-items');
 
 // Loop through each container
     containers.forEach(container => {
@@ -443,7 +444,7 @@ if (window.innerWidth >= 768) {
         const photos = container.querySelectorAll('.gallery-item-item');
 
         // Calculate total animation time and add a CSS variable
-        const totalAnimationTime = photos.length * 10; // Assuming 4 seconds per photo
+        const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
         document.documentElement.style.setProperty('--total-animation-time-gallery', `${totalAnimationTime}s`);
 
         // Generate CSS for each photo in the container
@@ -451,6 +452,25 @@ if (window.innerWidth >= 768) {
             // Calculate and set animation delay
             const animationDelay = totalAnimationTime - 4 * (index + 1);
             photo.style.animationDelay = `-${animationDelay}s`;
+        });
+    });*/
+    let containersGl = document.querySelectorAll('.gallery-item-items');
+    // Loop through each container
+    containersGl.forEach(container => {
+        // Get the photos in the container
+        const photos = container.querySelectorAll('.gallery-item-item');
+
+        // Set a constant animation duration (e.g., 10 seconds per photo)
+        const animationDuration = 12;
+
+        // Calculate total animation time for all photos
+        const totalAnimationTime = animationDuration * photos.length;
+
+        // Generate CSS for each photo in the container
+        photos.forEach((photo, index) => {
+            // Calculate and set animation delay
+            const animationDelay = (index + 1) * animationDuration / photos.length;
+            photo.style.animation = `round ${animationDuration}s ${animationDelay}s infinite`;
         });
     });
 
