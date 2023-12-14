@@ -2,6 +2,8 @@
 :root {
     --total-animation-time: 0;
     --total-animation-time-gallery: 0;
+    --total-animation-time-master: 0;
+    --total-animation-time-about: 0
 }
 
 @keyframes round {
@@ -1017,9 +1019,18 @@
     margin-top: 0;
 }
 
-/*.master-img-container {
-    border-radius: 35px;
-}*/
+.master-img-container {
+    position: relative;
+    background-color: #000000;
+    border-radius: 75px;
+}
+
+.master-slider {
+    position: absolute;
+    animation: round var(--total-animation-time-master) infinite;
+    opacity: 0;
+}
+
 
 @media (min-width: 320px) {
     .master-item {
@@ -1036,6 +1047,8 @@
     }
 
     .master-buttons {
+        display: flex;
+        justify-content: center;
         padding: 10px;
     }
 }
@@ -1146,8 +1159,14 @@
     margin: 0;
 }
 
-.about-us-media {
-    background-color: black;
+.about-wrapper-media {
+    position: relative;
+}
+
+.about-slider {
+    position: absolute;
+    animation: round var(--total-animation-time-about) infinite;
+    opacity: 0;
 }
 
 @media (min-width: 320px) and (max-width: 999px) {
@@ -1166,9 +1185,15 @@
         margin-bottom: 20px;
     }
 
-    .about-us-media {
-        min-height: 150px;
+   /* .about-us-media {*/
+    .about-wrapper-media {
+        min-height: 370px;
         background-color: black;
+    }
+
+    .wrapper-media-video video {
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -1178,12 +1203,15 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     .about-us-item {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        flex: 1;
+        flex-shrink: 1;
         min-height: 320px;
         margin-right: 20px;
     }
@@ -1195,6 +1223,14 @@
     .about-us-item > * {
         min-height: 150px;
         margin: 0;
+    }
+
+    .about-wrapper-media {
+        min-height: 490px;
+    }
+
+    .about-wrapper-media img{
+        height: 490px;
     }
 }
 
@@ -1227,6 +1263,14 @@
 
     .about-us-item > * {
         min-height: 200px;
+    }
+
+    .about-wrapper-media {
+        height: 600px;
+    }
+
+    .about-wrapper-media img{
+        height: 100%;
     }
 }
 

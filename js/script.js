@@ -118,12 +118,27 @@ const changeMasterCard = (elem) => {
         img = masterImgContainer.innerHTML;
         masterDescriptions.innerHTML = cardText.innerHTML;
         masterImgContainer.innerHTML = cardImg.innerHTML;
-        cardImgArray = Array.from(masterImgContainer.querySelectorAll('.master-img'))
-        masterImgContainerSlider = new Slider(cardImgArray, 1);
+        /*masterImgContainerSlider = new Slider(cardImgArray, 1);
         masterImgContainerSlider.makeHideOtherSlides(0,0);
         masterImgTimer = setInterval(() => {
             masterImgContainerSlider.moveRight(1);
-        }, 2500);
+        }, 2500);*/
+        // Get the photos in the container
+        const photos = masterImgContainer.querySelectorAll('img');
+
+        // Calculate total animation time and add a CSS variable
+        const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
+        document.documentElement.style.setProperty('--total-animation-time-master', `${totalAnimationTime}s`);
+
+        // Generate CSS for each photo in the container
+        photos.forEach((photo, index) => {
+            // Calculate and set animation delay
+            photo.classList.toggle('master-slider');
+            const animationDelay = totalAnimationTime - 4 * (index + 1);
+            photo.style.animationDelay = `-${animationDelay}s`;
+        });
+
+
         cardText.innerHTML = text;
         cardImg.innerHTML = img;
         cardBtn.innerHTML = 'Закрыть';
@@ -165,6 +180,23 @@ containers.forEach(container => {
         photo.style.animationDelay = `-${animationDelay}s`;
     });
 });
+
+const aboutWrapperMediaImg = document.querySelector('.wrapper-media-img');
+
+const photosAbout = aboutWrapperMediaImg.querySelectorAll('.about-us-media');
+
+// Calculate total animation time and add a CSS variable
+const totalAnimationTime = photosAbout.length * 4; // Assuming 4 seconds per photo
+document.documentElement.style.setProperty('--total-animation-time-about', `${totalAnimationTime}s`);
+
+// Generate CSS for each photo in the container
+photosAbout.forEach((photo, index) => {
+    photo.classList.toggle('about-slider');
+    // Calculate and set animation delay
+    const animationDelay = totalAnimationTime - 4 * (index + 1);
+    photo.style.animationDelay = `-${animationDelay}s`;
+});
+
 
 
 const masterSlider = new Slider(mastersLiArray, 1);
