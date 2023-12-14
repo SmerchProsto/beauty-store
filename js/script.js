@@ -1,7 +1,13 @@
 const buttonOpen = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.main-nav');
 const navItems = document.querySelector('.nav-items');
-const buttonSignUp = document.querySelector('.button-signup');
+
+const masters = document.querySelector('.master-items');
+const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
+const commentsLiArray = Array.from(document.querySelectorAll('.comment-item'));
+const worksLiArray = Array.from(document.querySelectorAll('.work-item'));
+const gallery = document.querySelector('.gallery-items');
+const galleryLiArray = Array.from(document.querySelectorAll('.gallery-item'));
+
 
 (function () {
     let toggle = document.querySelector('.nav-toggle');
@@ -11,32 +17,11 @@ const buttonSignUp = document.querySelector('.button-signup');
     });
 
 })();
-
-/*if (window.innerWidth < 999) {
-    /!*document.addEventListener("DOMContentLoaded", () => {
-        changeMenu()
-    })*!/
-}*/
-
 const changeMenu = () => {
-    /*if (navItems.classList.contains('hidden')) {
-        navItems.classList.remove('hidden');
-    } else if (!navItems.classList.contains('hidden')) {
-        navItems.classList.add('hidden');
-    }*/
     navItems.classList.toggle("collapsed");
 }
 
 buttonOpen.addEventListener('click', changeMenu);
-
-const masters = document.querySelector('.master-items');
-const mastersLiArray = Array.from(document.querySelectorAll('.master-item'));
-const commentsLiArray = Array.from(document.querySelectorAll('.comment-item'));
-const worksLiArray = Array.from(document.querySelectorAll('.work-item'));
-const gallery = document.querySelector('.gallery-items');
-const galleryLiArray = Array.from(document.querySelectorAll('.gallery-item'));
-const priceItemImgArray = Array.from(document.querySelectorAll('.price-item-img'));
-
 const findParentByTag = (childElement, parentName) => {
 
     if (childElement.parentElement.tagName === parentName) {
@@ -93,9 +78,12 @@ const changeMasterCard = (elem) => {
     let cardImgArray = null;
     let text;
     let img;
-    let masterImgTimer;
     if (null !== cardBtn.innerHTML &&  cardBtn.innerHTML === 'Закрыть') {
         elem.classList.remove('master-item-scale');
+        let photos = masterImgContainer.querySelectorAll('img');
+        photos.forEach((photo) => {
+            photo.classList.toggle('master-slider');
+        });
         cardBtn.innerHTML = 'Подробнее';
         text = cardText.innerHTML;
         img = cardImg.innerHTML;
@@ -105,25 +93,18 @@ const changeMasterCard = (elem) => {
         masterImgContainer.innerHTML = img;
         masterImgContainerSlider = null;
         cardImgArray = null;
-        clearInterval(masterImgTimer);
         mastersLiArray.map(master => {
             if (master.id !== elem.id) {
                 master.classList.remove('hidden-elem');
             }
         });
         masterArrows.classList.toggle('hidden');
-    } else {
+    } else if (cardBtn.innerHTML === 'Подробнее') {
         elem.classList.add('master-item-scale');
         text = masterDescriptions.innerHTML;
         img = masterImgContainer.innerHTML;
         masterDescriptions.innerHTML = cardText.innerHTML;
         masterImgContainer.innerHTML = cardImg.innerHTML;
-        /*masterImgContainerSlider = new Slider(cardImgArray, 1);
-        masterImgContainerSlider.makeHideOtherSlides(0,0);
-        masterImgTimer = setInterval(() => {
-            masterImgContainerSlider.moveRight(1);
-        }, 2500);*/
-        // Get the photos in the container
         const photos = masterImgContainer.querySelectorAll('img');
 
         // Calculate total animation time and add a CSS variable
@@ -150,16 +131,6 @@ const changeMasterCard = (elem) => {
         masterArrows.classList.toggle('hidden');
     }
 }
-
-/*let priceImgSliders = [];*/
-/*priceItemImgArray.map((item, index) => {
-    priceImgSliders.push(new Slider(Array.from(item.querySelectorAll('.price-img')), 1));
-    priceImgSliders[index].makeHideOtherSlides(0, 0);
-
-    setInterval(() => {
-        priceImgSliders[index].moveRight(1);
-    }, 2500)
-})*/
 
 // Get all containers
 const containers = document.querySelectorAll('.price-item-img');
@@ -196,8 +167,6 @@ photosAbout.forEach((photo, index) => {
     const animationDelay = totalAnimationTime - 4 * (index + 1);
     photo.style.animationDelay = `-${animationDelay}s`;
 });
-
-
 
 const masterSlider = new Slider(mastersLiArray, 1);
 masterSlider.arrowLeft = document.querySelector('.master .arrow-button-left');
@@ -277,41 +246,14 @@ createOrDeleteChrist = (elem) => {
 }
 
 if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-    /*const gallerySlider = new Slider(galleryLiArray, 1);
-    let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
-    galleryItemSlider.makeHideOtherSlides(0,0);
-    let galleryItemSliderTimer = setInterval(() => {
-        galleryItemSlider.moveRight(1)
-    }, 2500)
-    gallerySlider.setIds();
-
-    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
-    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
-    gallerySlider.arrowRight.addEventListener('click', () => {
-        gallerySlider.moveRight(1);
-        clearInterval(galleryItemSliderTimer);
-        galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
-        galleryItemSlider.makeHideOtherSlides(0,0);
-        galleryItemSliderTimer = setInterval(() => {
-            galleryItemSlider.moveRight(1)
-        }, 2500);
-    });
-    gallerySlider.arrowLeft.addEventListener('click', () => {
-        gallerySlider.moveLeft(1);
-    });
-    gallerySlider.makeHideOtherSlides(0, 0);*/
-    // Get all containers
-    let containersGl = document.querySelectorAll('.gallery-item-items');
-    // Loop through each container
-    containersGl.forEach(container => {
+    let containersGallery = document.querySelectorAll('.gallery-item-items');
+// Loop through each container
+    containersGallery.forEach(container => {
         // Get the photos in the container
         const photos = container.querySelectorAll('.gallery-item-item');
 
         // Set a constant animation duration (e.g., 10 seconds per photo)
         const animationDuration = 12;
-
-        // Calculate total animation time for all photos
-        const totalAnimationTime = animationDuration * photos.length;
 
         // Generate CSS for each photo in the container
         photos.forEach((photo, index) => {
@@ -332,8 +274,6 @@ if (window.innerWidth >= 768 && window.innerWidth < 1024) {
     gallerySlider.arrowLeft.addEventListener('click', () => {
         gallerySlider.moveLeft(1);
     });
-
-
 }
 
 
@@ -361,7 +301,6 @@ if (window.innerWidth >= 768) {
     commentSlider.makeHideOtherSlides(0, 1);
 
 }   else if (window.innerWidth < 768) {
-
     navItems.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
             changeMenu();
@@ -397,74 +336,14 @@ if (window.innerWidth >= 768) {
     });
     commentSlider.makeHideOtherSlides(0, 0);
 
-    /*const commentSlider = new Slider(commentsLiArray, 1);
-    let elemsOfSlider = Array.from(document.querySelectorAll('.comment .left-show-animation'))
-    elemsOfSlider.map((elem) => {
-        elem.classList.remove('left-show-animation');
-    })
-    commentSlider.arrowLeft = document.querySelector('.work .arrow-button-left');
-    commentSlider.arrowRight = document.querySelector('.work .arrow-button-right');
-    commentSlider.arrowRight.addEventListener('click', () => {
-        workSlider.moveRight(1, true);
-    });
-    commentSlider.arrowLeft.addEventListener('click', () => {
-        commentSlider.moveLeft(1, true);
-    });
-    commentSlider.makeHideOtherSlides(0, 0);*/
-
-    /*const gallerySlider = new Slider(galleryLiArray, 1);
-    let galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
-    galleryItemSlider.makeHideOtherSlides(0,0);
-    let galleryItemSliderTimer = setInterval(() => {
-        galleryItemSlider.moveRight(1)
-    }, 2500)
-    gallerySlider.setIds();
-
-    gallerySlider.arrowLeft = document.querySelector('.gallery .arrow-button-left');
-    gallerySlider.arrowRight = document.querySelector('.gallery .arrow-button-right');
-    gallerySlider.arrowRight.addEventListener('click', () => {
-        gallerySlider.moveRight(1);
-        clearInterval(galleryItemSliderTimer);
-        galleryItemSlider = new Slider(Array.from(gallerySlider.getSlide().querySelectorAll('.gallery-item-item')), 1);
-        galleryItemSlider.makeHideOtherSlides(0,0);
-        galleryItemSliderTimer = setInterval(() => {
-            galleryItemSlider.moveRight(1)
-        }, 2500);
-    });
-    gallerySlider.arrowLeft.addEventListener('click', () => {
-        gallerySlider.moveLeft(1);
-    });
-    gallerySlider.makeHideOtherSlides(0, 0);*/
-    // Get all containers
-/*    const containers = document.querySelectorAll('.gallery-item-items');
-
-// Loop through each container
-    containers.forEach(container => {
-        // Get the photos in the container
-        const photos = container.querySelectorAll('.gallery-item-item');
-
-        // Calculate total animation time and add a CSS variable
-        const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
-        document.documentElement.style.setProperty('--total-animation-time-gallery', `${totalAnimationTime}s`);
-
-        // Generate CSS for each photo in the container
-        photos.forEach((photo, index) => {
-            // Calculate and set animation delay
-            const animationDelay = totalAnimationTime - 4 * (index + 1);
-            photo.style.animationDelay = `-${animationDelay}s`;
-        });
-    });*/
     let containersGl = document.querySelectorAll('.gallery-item-items');
-    // Loop through each container
+// Loop through each container
     containersGl.forEach(container => {
         // Get the photos in the container
         const photos = container.querySelectorAll('.gallery-item-item');
 
         // Set a constant animation duration (e.g., 10 seconds per photo)
         const animationDuration = 12;
-
-        // Calculate total animation time for all photos
-        const totalAnimationTime = animationDuration * photos.length;
 
         // Generate CSS for each photo in the container
         photos.forEach((photo, index) => {
@@ -485,7 +364,6 @@ if (window.innerWidth >= 768) {
     gallerySlider.arrowLeft.addEventListener('click', () => {
         gallerySlider.moveLeft(1);
     });
-
 }
 if (window.innerWidth >= 1024) {
     const priceItems = Array.from(document.querySelectorAll('.price-item'));
