@@ -81,9 +81,11 @@ const changeMasterCard = (elem) => {
     if (null !== cardBtn.innerHTML &&  cardBtn.innerHTML === 'Закрыть') {
         elem.classList.remove('master-item-scale');
         let photos = masterImgContainer.querySelectorAll('img');
-        photos.forEach((photo) => {
-            photo.classList.toggle('master-slider');
-        });
+        if (photos.length > 1) {
+            photos.forEach((photo) => {
+                photo.classList.toggle('master-slider');
+            });
+        }
         cardBtn.innerHTML = 'Подробнее';
         text = cardText.innerHTML;
         img = cardImg.innerHTML;
@@ -391,8 +393,8 @@ if (window.innerWidth >= 1024) {
         }
     })
 
-    const gallerySlider = new Slider(galleryLiArray, 8);
-    gallerySlider.makeHideOtherSlides(0,7);
+    const gallerySlider = new Slider(galleryLiArray, galleryLiArray.length);
+    gallerySlider.makeHideOtherSlides(0,galleryLiArray.length - 1);
 
     /*Slider for gallery's li's elements */
     gallery.addEventListener('click', (e) => {
