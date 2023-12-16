@@ -124,7 +124,6 @@ class Slider {
             this.showAllSlides();
             this.slideBack = Math.abs(this.slideBack - (this.slides.length));
         }
-        /*this.makeHideOtherSlides(this.slideBack, this.slideHead);*/
         if (carousel) {
             this.moveSlides(this.slideBack, this.slideHead, 'left');
         }   else {
