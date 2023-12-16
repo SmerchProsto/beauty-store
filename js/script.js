@@ -105,19 +105,22 @@ const changeMasterCard = (elem) => {
         img = masterImgContainer.innerHTML;
         masterDescriptions.innerHTML = cardText.innerHTML;
         masterImgContainer.innerHTML = cardImg.innerHTML;
-        const photos = masterImgContainer.querySelectorAll('img');
+        const photos = Array.from(masterImgContainer.querySelectorAll('img'));
+        if (photos.length > 1) {
 
-        // Calculate total animation time and add a CSS variable
-        const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
-        document.documentElement.style.setProperty('--total-animation-time-master', `${totalAnimationTime}s`);
+            // Calculate total animation time and add a CSS variable
+            const totalAnimationTime = photos.length * 4; // Assuming 4 seconds per photo
+            document.documentElement.style.setProperty('--total-animation-time-master', `${totalAnimationTime}s`);
 
-        // Generate CSS for each photo in the container
-        photos.forEach((photo, index) => {
-            // Calculate and set animation delay
-            photo.classList.toggle('master-slider');
-            const animationDelay = totalAnimationTime - 4 * (index + 1);
-            photo.style.animationDelay = `-${animationDelay}s`;
-        });
+            // Generate CSS for each photo in the container
+            photos.forEach((photo, index) => {
+                // Calculate and set animation delay
+                photo.classList.toggle('master-slider');
+                const animationDelay = totalAnimationTime - 4 * (index + 1);
+                photo.style.animationDelay = `-${animationDelay}s`;
+            });
+        }
+
 
 
         cardText.innerHTML = text;
